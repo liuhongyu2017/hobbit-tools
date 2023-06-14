@@ -1,6 +1,6 @@
 package org.hobbit.tools;
 
-import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
+import static org.springframework.web.context.WebApplicationContext.SCOPE_REQUEST;
 
 import org.hobbit.tools.jackson.convert.ConvertCache;
 import org.hobbit.tools.jackson.convert.IConvert;
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Scope;
 @AutoConfiguration
 public class HobbitAutoConfiguration {
 
-  @Scope(SCOPE_PROTOTYPE)
+  @Scope(SCOPE_REQUEST)
   @Bean
   public ConvertCache convertCache(IConvert convert) {
     return new ConvertCache(convert);
