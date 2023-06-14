@@ -14,7 +14,7 @@ import org.hobbit.tools.checker.Condition;
  * @author lhy
  * @version 1.0.0 2023/6/14
  */
-@SuppressWarnings("all")
+@SuppressWarnings({"unchecked", "all"})
 public class ConditionHandler {
 
   public static boolean handleMatches(Object obj, Condition condition) {

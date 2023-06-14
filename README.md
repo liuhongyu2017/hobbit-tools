@@ -16,3 +16,4 @@ mvn
 1. checker 函数化参数检查
 2. jackson
     1. desensitize 脱敏注解
+    2. convert 字段转换
