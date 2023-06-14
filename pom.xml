@@ -21,9 +21,16 @@
         <spring.version>6.0.3</spring.version>
         <spring.boot.version>3.0.1</spring.boot.version>
         <guava.version>31.1-jre</guava.version>
+        <mica.version>3.0.1</mica.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>net.dreamlu</groupId>
+            <artifactId>mica-auto</artifactId>
+            <version>${mica.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
