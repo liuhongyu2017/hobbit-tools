@@ -10,7 +10,7 @@ mvn versions:set -DnewVersion=1.0.1-SNAPSHOT
 // 回退
 mvn versions:revert
 // 确认
-mvn 
+mvn versions:commit
 ```
 ------------------------------------------------------
 1. checker 函数化参数检查
