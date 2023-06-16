@@ -24,7 +24,7 @@ public class ConditionHandler {
       field.setAccessible(true);
       Object result = field.get(obj);
 
-      boolean matches = Pattern.matches(String.valueOf(result), String.valueOf(condition.getVal()));
+      boolean matches = Pattern.matches(String.valueOf(condition.getVal()), String.valueOf(result));
       if (!matches) {
         throwBizError(condition);
       }
