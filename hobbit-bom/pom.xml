@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.hobbit.platform</groupId>
+	<artifactId>hobbit-bom</artifactId>
+	<version>3.1.4</version>
+	<packaging>pom</packaging>
+	<description>hobbit 统一版本控制</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- mica -->
+		<mica.version>3.1.1</mica.version>
+		<!-- apache commons -->
+		<commons.lang3.version>3.13.0</commons.lang3.version>
+		<!-- swagger -->
+		<springfox.swagger2.version>3.0.0</springfox.swagger2.version>
+		<swagger.annotations.version>1.6.8</swagger.annotations.version>
+		<!-- guava -->
+		<guava.version>32.1.2-jre</guava.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- mica -->
+			<dependency>
+				<groupId>net.dreamlu</groupId>
+				<artifactId>mica-auto</artifactId>
+				<version>${mica.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- apache commons -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons.lang3.version}</version>
+			</dependency>
+			<!-- swagger -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${springfox.swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>${swagger.annotations.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-models</artifactId>
+				<version>${swagger.annotations.version}</version>
+			</dependency>
+			<!-- guava -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
