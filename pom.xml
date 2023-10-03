@@ -25,7 +25,9 @@
 	</properties>
 
 	<modules>
+		<module>hobbit-bom</module>
 		<module>hobbit-core-tool</module>
+		<module>hobbit-core-launch</module>
 	</modules>
 
 	<dependencyManagement>
