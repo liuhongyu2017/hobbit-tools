@@ -1,5 +1,6 @@
-package org.hobbit.core.context.props;
+package org.hobbit.core.boot.prop;
 
+import org.hobbit.core.tool.utils.PathUtil;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.lang.Nullable;
 import lombok.Getter;
@@ -20,5 +21,5 @@ public class HobbitUploadProperties {
    * 文件保存目录，默认：jar 包同级目录
    */
   @Nullable
-  private String savePath = "";
+  private String savePath = PathUtil.getJarPath();
 }
