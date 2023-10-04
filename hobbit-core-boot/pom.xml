@@ -13,4 +13,25 @@
 	<packaging>jar</packaging>
 	<description>spring boot 相关</description>
 
+	<dependencies>
+		<dependency>
+			<groupId>net.dreamlu</groupId>
+			<artifactId>mica-auto</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hobbit</groupId>
+			<artifactId>hobbit-core-tool</artifactId>
+			<version>3.1.4-SNAPSHOTS</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hobbit</groupId>
+			<artifactId>hobbit-core-launch</artifactId>
+			<version>3.1.4-SNAPSHOTS</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hobbit</groupId>
+			<artifactId>hobbit-core-log</artifactId>
+			<version>3.1.4-SNAPSHOTS</version>
+		</dependency>
+	</dependencies>
 </project>

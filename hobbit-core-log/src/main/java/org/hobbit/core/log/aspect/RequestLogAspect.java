@@ -56,7 +56,7 @@ public class RequestLogAspect {
    * @return Object
    * @throws Throwable 异常
    */
-  @Around("execution(!static org.hobbit.spring.boot.core.api.R *(..)) && "
+  @Around("execution(!static org.hobbit.core.tool.api.R *(..)) && "
       + "(@within(org.springframework.stereotype.Controller) || "
       + "@within(org.springframework.web.bind.annotation.RestController))")
   public Object aroundApi(ProceedingJoinPoint point) throws Throwable {
