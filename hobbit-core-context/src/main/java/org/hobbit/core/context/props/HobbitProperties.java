@@ -1,4 +1,4 @@
-package org.hobbit.core.launch.props;
+package org.hobbit.core.context.props;
 
 import java.util.HashMap;
 import java.util.Map;

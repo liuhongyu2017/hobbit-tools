@@ -9,20 +9,18 @@
 		<version>3.1.4-SNAPSHOTS</version>
 	</parent>
 
-	<artifactId>hobbit-core-tool</artifactId>
+	<artifactId>hobbit-core-context</artifactId>
 	<packaging>jar</packaging>
-	<description>工具类</description>
+	<description>上下文</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>net.dreamlu</groupId>
 			<artifactId>mica-auto</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hobbit</groupId>
-			<artifactId>hobbit-core-context</artifactId>
-			<version>3.1.4-SNAPSHOTS</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,25 +36,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-models</artifactId>
-		</dependency>
 	</dependencies>
+
 </project>

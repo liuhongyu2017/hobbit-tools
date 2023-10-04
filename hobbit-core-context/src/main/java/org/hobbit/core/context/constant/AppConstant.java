@@ -1,4 +1,4 @@
-package org.hobbit.core.tool.constant;
+package org.hobbit.core.context.constant;
 
 /**
  * app 常量

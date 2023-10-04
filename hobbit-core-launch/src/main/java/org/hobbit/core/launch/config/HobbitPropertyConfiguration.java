@@ -1,6 +1,6 @@
 package org.hobbit.core.launch.config;
 
-import org.hobbit.core.launch.props.HobbitProperties;
+import org.hobbit.core.context.props.HobbitProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

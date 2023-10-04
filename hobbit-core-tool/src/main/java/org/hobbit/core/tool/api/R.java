@@ -1,7 +1,7 @@
 package org.hobbit.core.tool.api;
 
 import java.util.Optional;
-import org.hobbit.core.tool.constant.HobbitConstant;
+import org.hobbit.core.context.constant.HobbitConstant;
 import org.hobbit.core.tool.utils.ObjectUtil;
 import org.springframework.lang.Nullable;
 import io.swagger.annotations.ApiModel;

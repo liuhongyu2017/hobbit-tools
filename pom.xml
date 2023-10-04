@@ -26,8 +26,11 @@
 
 	<modules>
 		<module>hobbit-bom</module>
+		<module>hobbit-core-context</module>
 		<module>hobbit-core-tool</module>
 		<module>hobbit-core-launch</module>
+		<module>hobbit-core-log</module>
+		<module>hobbit-core-boot</module>
 	</modules>
 
 	<dependencyManagement>
@@ -46,6 +49,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 
