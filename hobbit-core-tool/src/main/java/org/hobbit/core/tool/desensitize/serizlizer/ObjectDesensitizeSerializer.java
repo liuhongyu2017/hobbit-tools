@@ -1,6 +1,7 @@
 package org.hobbit.core.tool.desensitize.serizlizer;
 
 import java.io.IOException;
+import lombok.Getter;
 import org.hobbit.core.tool.desensitize.Symbol;
 import org.hobbit.core.tool.desensitize.annotation.Desensitize;
 import org.hobbit.core.tool.desensitize.desensitization.Desensitization;
@@ -18,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author lhy
  * @version 1.0.0 2023/9/3
  */
+@Getter
 @Slf4j
 public class ObjectDesensitizeSerializer extends StdSerializer<Object> implements
     ContextualSerializer {
@@ -26,10 +28,6 @@ public class ObjectDesensitizeSerializer extends StdSerializer<Object> implement
 
   protected ObjectDesensitizeSerializer() {
     super(Object.class);
-  }
-
-  public Desensitization<Object> getDesensitization() {
-    return desensitization;
   }
 
   public void setDesensitization(Desensitization<Object> desensitization) {

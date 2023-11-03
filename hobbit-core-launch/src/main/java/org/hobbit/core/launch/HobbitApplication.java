@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.ServiceLoader;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import org.hobbit.core.context.constant.AppConstant;
 import org.hobbit.core.launch.service.LauncherService;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -24,7 +23,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * 项目启动器，搞定环境变量问题
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */
@@ -35,7 +34,7 @@ public class HobbitApplication {
    * --server.port=2333
    *
    * @param appName application name
-   * @param source The sources
+   * @param source  The sources
    * @return an application context created from the current state
    */
   public static ConfigurableApplicationContext run(String appName, Class<?> source,
@@ -85,7 +84,8 @@ public class HobbitApplication {
     }
     String startJarPath = HobbitApplication.class.getResource("/").getPath().split("!")[0];
     String activePros = joinFun.apply(activeProfileList.toArray());
-    System.out.printf("----启动中，读取到的环境变量:[%s]，jar地址:[%s]----%n", activePros, startJarPath);
+    System.out.printf("----启动中，读取到的环境变量:[%s]，jar地址:[%s]----%n", activePros,
+        startJarPath);
     Properties props = System.getProperties();
     props.setProperty("spring.application.name", appName);
     props.setProperty("spring.profiles.active", profile);
@@ -105,8 +105,10 @@ public class HobbitApplication {
     // 加载自定义组件
     List<LauncherService> launcherList = new ArrayList<>();
     ServiceLoader.load(LauncherService.class).forEach(launcherList::add);
-    launcherList.stream().sorted(Comparator.comparing(LauncherService::getOrder))
-        .collect(Collectors.toList()).forEach(
+    launcherList.stream()
+        .sorted(Comparator.comparing(LauncherService::getOrder))
+        .toList()
+        .forEach(
             launcherService -> launcherService.launcher(builder, appName, profile, isLocalDev()));
     return builder;
   }
