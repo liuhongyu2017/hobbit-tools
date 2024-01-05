@@ -3,6 +3,8 @@ package org.hobbit.core.boot.file;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.context.props.HobbitFileProperties;
 import org.hobbit.core.tool.pool.StringPool;
 import org.hobbit.core.tool.utils.DateUtil;
@@ -11,10 +13,11 @@ import org.hobbit.core.tool.utils.SpringUtil;
 
 /**
  * 文件代理类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
+@Slf4j
 public class LocalFileProxyFactory implements IFileProxy {
 
   /**
@@ -41,16 +44,14 @@ public class LocalFileProxyFactory implements IFileProxy {
     // 避免网络延迟导致时间不同步
     long time = System.nanoTime();
 
-    StringBuilder uploadPath =
-        new StringBuilder().append(getFileDir(dir, getHobbitFileProperties().getUploadRealPath()))
-            .append(time).append(getFileExt(f.getName()));
+    String uploadPath = getFileDir(dir, getHobbitFileProperties().getUploadRealPath())
+        + time + getFileExt(f.getName());
 
-    StringBuilder virtualPath =
-        new StringBuilder().append(getFileDir(dir, getHobbitFileProperties().getUploadCtxPath()))
-            .append(time).append(getFileExt(f.getName()));
+    String virtualPath = getFileDir(dir, getHobbitFileProperties().getUploadCtxPath())
+        + time + getFileExt(f.getName());
 
-    return new String[] {HobbitFileUtil.formatUrl(uploadPath.toString()),
-        HobbitFileUtil.formatUrl(virtualPath.toString())};
+    return new String[]{HobbitFileUtil.formatUrl(uploadPath),
+        HobbitFileUtil.formatUrl(virtualPath)};
   }
 
   /**
@@ -70,15 +71,13 @@ public class LocalFileProxyFactory implements IFileProxy {
   /**
    * 获取文件保存地址
    *
-   * @param dir 目录
+   * @param dir     目录
    * @param saveDir 保存目录
    * @return 地址
    */
   public static String getFileDir(String dir, String saveDir) {
-    StringBuilder newFileDir = new StringBuilder();
-    newFileDir.append(saveDir).append(File.separator).append(dir).append(File.separator)
-        .append(DateUtil.format(DateUtil.now(), "yyyyMMdd")).append(File.separator);
-    return newFileDir.toString();
+    return saveDir + File.separator + dir + File.separator
+        + DateUtil.format(DateUtil.now(), "yyyyMMdd") + File.separator;
   }
 
 
@@ -90,11 +89,12 @@ public class LocalFileProxyFactory implements IFileProxy {
   @Override
   public void compress(String path) {
     try {
-      ImageUtil.zoomScale(ImageUtil.readImage(path), new FileOutputStream(new File(path)), null,
+      ImageUtil.zoomScale(Objects.requireNonNull(ImageUtil.readImage(path)),
+          new FileOutputStream(path), null,
           getHobbitFileProperties().getCompressScale(),
           getHobbitFileProperties().getCompressFlag());
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      log.error(e.getMessage(), e);
     }
   }
 }

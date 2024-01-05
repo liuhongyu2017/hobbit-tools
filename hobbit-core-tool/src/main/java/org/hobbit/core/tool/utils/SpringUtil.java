@@ -1,11 +1,11 @@
 package org.hobbit.core.tool.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.lang.Nullable;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * spring 工具类
@@ -27,7 +27,7 @@ public class SpringUtil implements ApplicationContextAware {
    * 获取bean
    *
    * @param clazz class类
-   * @param <T> 泛型
+   * @param <T>   泛型
    * @return T
    */
   public static <T> T getBean(Class<T> clazz) {
@@ -41,7 +41,7 @@ public class SpringUtil implements ApplicationContextAware {
    * 获取bean
    *
    * @param beanId beanId
-   * @param <T> 泛型
+   * @param <T>    泛型
    * @return T
    */
   @SuppressWarnings("unchecked")
@@ -56,12 +56,12 @@ public class SpringUtil implements ApplicationContextAware {
    * 获取bean
    *
    * @param beanName bean名称
-   * @param clazz class类
-   * @param <T> 泛型
+   * @param clazz    class类
+   * @param <T>      泛型
    * @return T
    */
   public static <T> T getBean(String beanName, Class<T> clazz) {
-    if (null == beanName || "".equals(beanName.trim())) {
+    if (null == beanName || beanName.trim().isEmpty()) {
       return null;
     }
     if (clazz == null) {

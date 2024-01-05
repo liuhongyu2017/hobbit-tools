@@ -1,8 +1,8 @@
 package org.hobbit.core.log.exception;
 
+import lombok.Getter;
 import org.hobbit.core.tool.api.IResultCode;
 import org.hobbit.core.tool.api.ResultCode;
-import lombok.Getter;
 
 /**
  * 业务异常
@@ -10,9 +10,9 @@ import lombok.Getter;
  * @author lhy
  * @version 1.0.0 2023/9/3
  */
+@Getter
 public class ServiceException extends RuntimeException {
 
-  @Getter
   private final IResultCode resultCode;
 
   public ServiceException(String message) {

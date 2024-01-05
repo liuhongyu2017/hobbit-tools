@@ -1,10 +1,10 @@
 package org.hobbit.core.launch.server;
 
+import lombok.Getter;
 import org.hobbit.core.tool.utils.INetUtil;
 import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
-import lombok.Getter;
 
 /**
  * @author lhy

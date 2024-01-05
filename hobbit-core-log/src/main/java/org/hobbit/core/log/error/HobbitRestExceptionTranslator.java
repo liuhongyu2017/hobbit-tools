@@ -1,5 +1,8 @@
 package org.hobbit.core.log.error;
 
+import jakarta.servlet.Servlet;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.log.exception.ServiceException;
 import org.hobbit.core.tool.api.R;
 import org.hobbit.core.tool.api.ResultCode;
@@ -14,9 +17,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.DispatcherServlet;
-import jakarta.servlet.Servlet;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 未知异常转移和发送，方便监听，对未知异常统一处理。

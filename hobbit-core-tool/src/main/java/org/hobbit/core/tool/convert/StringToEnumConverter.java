@@ -1,5 +1,7 @@
 package org.hobbit.core.tool.convert;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import jakarta.annotation.Nonnull;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -9,14 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.tool.utils.ConvertUtil;
 import org.hobbit.core.tool.utils.StringUtil;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.ConditionalGenericConverter;
 import org.springframework.lang.Nullable;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import jakarta.annotation.Nonnull;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 接收参数 同 jackson String -》 Enum 转换
@@ -94,7 +94,7 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
   @Nullable
   private static Object invoke(Class<?> clazz, AccessibleObject accessibleObject, String value)
       throws IllegalAccessException, InvocationTargetException, InstantiationException {
-    if (accessibleObject instanceof Constructor constructor) {
+    if (accessibleObject instanceof Constructor<?> constructor) {
       Class<?> paramType = constructor.getParameterTypes()[0];
       // 类型转换
       Object object = ConvertUtil.convert(value, paramType);

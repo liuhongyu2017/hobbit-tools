@@ -53,7 +53,7 @@ public class IoUtil extends StreamUtils {
   /**
    * InputStream to String
    *
-   * @param input the <code>InputStream</code> to read from
+   * @param input   the <code>InputStream</code> to read from
    * @param charset the <code>Charset</code>
    * @return the requested String
    */
@@ -84,11 +84,11 @@ public class IoUtil extends StreamUtils {
    * This method uses {@link String#getBytes(String)}.
    * </p>
    *
-   * @param data the <code>String</code> to write, null ignored
-   * @param output the <code>OutputStream</code> to write to
+   * @param data     the <code>String</code> to write, null ignored
+   * @param output   the <code>OutputStream</code> to write to
    * @param encoding the encoding to use, null means platform default
    * @throws NullPointerException if output is null
-   * @throws IOException if an I/O error occurs
+   * @throws IOException          if an I/O error occurs
    */
   public static void write(@Nullable final String data, final OutputStream output,
       final Charset encoding) throws IOException {

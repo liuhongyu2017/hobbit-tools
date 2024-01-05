@@ -8,5 +8,5 @@ package org.hobbit.core.tool.checker;
  */
 public enum ECheckType {
 
-  NE, NOT_NULL, NOT_NULL_NE, IN, CUSTOM, MATCHES,;
+  NE, NOT_NULL, NOT_NULL_NE, IN, CUSTOM, MATCHES,
 }

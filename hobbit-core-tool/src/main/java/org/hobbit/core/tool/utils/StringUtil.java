@@ -37,7 +37,7 @@ public class StringUtil extends StringUtils {
    * More specifically, this method returns {@code true} if the {@code CharSequence} is not
    * {@code null}, its length is greater than 0, and it contains at least one non-whitespace
    * character.
-   * 
+   *
    * <pre class="code">
    * StringUtil.isBlank(null) = true
    * StringUtil.isBlank("") = true
@@ -48,7 +48,7 @@ public class StringUtil extends StringUtils {
    *
    * @param cs the {@code CharSequence} to check (may be {@code null})
    * @return {@code true} if the {@code CharSequence} is not {@code null}, its length is greater
-   *         than 0, and it does not contain whitespace only
+   * than 0, and it does not contain whitespace only
    * @see Character#isWhitespace
    */
   public static boolean isBlank(final CharSequence cs) {
@@ -59,7 +59,7 @@ public class StringUtil extends StringUtils {
    * <p>
    * Checks if a CharSequence is not empty (""), not null and not whitespace only.
    * </p>
-   * 
+   *
    * <pre>
    * StringUtil.isNotBlank(null)	  = false
    * StringUtil.isNotBlank("")		= false
@@ -122,7 +122,7 @@ public class StringUtil extends StringUtils {
     if (isBlank(cs)) {
       return false;
     }
-    for (int i = cs.length(); --i >= 0;) {
+    for (int i = cs.length(); --i >= 0; ) {
       int chr = cs.charAt(i);
       if (chr < 48 || chr > 57) {
         return false;
@@ -137,7 +137,7 @@ public class StringUtil extends StringUtils {
    * use: format("my name is ${name}, and i like ${like}!", {"name":"L.cm", "like": "Java"})
    *
    * @param message 需要转换的字符串
-   * @param params 转换所需的键值对集合
+   * @param params  转换所需的键值对集合
    * @return 转换后的字符串
    */
   public static String format(@Nullable String message, @Nullable Map<String, ?> params) {
@@ -153,7 +153,7 @@ public class StringUtil extends StringUtils {
     StringBuilder sb = new StringBuilder((int) (message.length() * 1.5));
     int cursor = 0;
     for (int start, end; (start = message.indexOf(StringPool.DOLLAR_LEFT_BRACE, cursor)) != -1
-        && (end = message.indexOf(StringPool.RIGHT_BRACE, start)) != -1;) {
+        && (end = message.indexOf(StringPool.RIGHT_BRACE, start)) != -1; ) {
       sb.append(message, cursor, start);
       String key = message.substring(start + 2, end);
       Object value = params.get(key.trim());
@@ -169,7 +169,7 @@ public class StringUtil extends StringUtils {
    * <p>
    * use: format("my name is {}, and i like {}!", "L.cm", "Java")
    *
-   * @param message 需要转换的字符串
+   * @param message   需要转换的字符串
    * @param arguments 需要替换的变量
    * @return 转换后的字符串
    */
@@ -187,7 +187,7 @@ public class StringUtil extends StringUtils {
     int index = 0;
     int argsLength = arguments.length;
     for (int start, end; (start = message.indexOf('{', cursor)) != -1
-        && (end = message.indexOf('}', start)) != -1 && index < argsLength;) {
+        && (end = message.indexOf('}', start)) != -1 && index < argsLength; ) {
       sb.append(message, cursor, start);
       sb.append(arguments[index]);
       cursor = end + 1;
@@ -233,7 +233,7 @@ public class StringUtil extends StringUtils {
    * <p>
    * Useful for {@code toString()} implementations.
    *
-   * @param coll the {@code Collection} to convert
+   * @param coll  the {@code Collection} to convert
    * @param delim the delimiter to use (typically a ",")
    * @return the delimited {@code String}
    */
@@ -258,7 +258,7 @@ public class StringUtil extends StringUtils {
    * <p>
    * Useful for {@code toString()} implementations.
    *
-   * @param arr the array to display
+   * @param arr   the array to display
    * @param delim the delimiter to use (typically a ",")
    * @return the delimited {@code String}
    */
@@ -274,7 +274,7 @@ public class StringUtil extends StringUtils {
    * </p>
    *
    * @param pattern 表达式
-   * @param str 字符串
+   * @param str     字符串
    * @return 是否匹配
    */
   public static boolean simpleMatch(@Nullable String pattern, @Nullable String str) {
@@ -289,7 +289,7 @@ public class StringUtil extends StringUtils {
    * </p>
    *
    * @param patterns 表达式 数组
-   * @param str 字符串
+   * @param str      字符串
    * @return 是否匹配
    */
   public static boolean simpleMatch(@Nullable String[] patterns, String str) {
@@ -380,7 +380,7 @@ public class StringUtil extends StringUtils {
   /**
    * 随机数生成
    *
-   * @param count 字符长度
+   * @param count      字符长度
    * @param randomType 随机数类别
    * @return 随机数
    */
@@ -399,11 +399,10 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 有序的格式化文本，使用{number}做为占位符<br>
-   * 例：<br>
-   * 通常使用：format("this is {0} for {1}", "a", "b") =》 this is a for b<br>
+   * 有序的格式化文本，使用{number}做为占位符<br> 例：<br> 通常使用：format("this is {0} for {1}", "a", "b") =》 this is a
+   * for b<br>
    *
-   * @param pattern 文本格式
+   * @param pattern   文本格式
    * @param arguments 参数
    * @return 格式化后的文本
    */
@@ -412,11 +411,11 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 格式化文本，使用 {varName} 占位<br>
-   * map = {a: "aValue", b: "bValue"} format("{a} and {b}", map) ---=》 aValue and bValue
+   * 格式化文本，使用 {varName} 占位<br> map = {a: "aValue", b: "bValue"} format("{a} and {b}", map) ---=》
+   * aValue and bValue
    *
    * @param template 文本模板，被替换的部分用 {key} 表示
-   * @param map 参数值对
+   * @param map      参数值对
    * @return 格式化后的文本
    */
   public static String format(CharSequence template, Map<?, ?> map) {
@@ -437,9 +436,9 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，不去除切分后每个元素两边的空白符，不去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
-   * @param limit 限制分片数，-1不限制
+   * @param limit     限制分片数，-1不限制
    * @return 切分后的集合
    */
   public static List<String> split(CharSequence str, char separator, int limit) {
@@ -449,7 +448,7 @@ public class StringUtil extends StringUtils {
   /**
    * 分割 字符串 删除常见 空白符
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param delimiter 分割符
    * @return 字符串数组
    */
@@ -460,7 +459,7 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
    * @return 切分后的集合
    * @since 3.1.2
@@ -472,7 +471,7 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
    * @return 切分后的集合
    * @since 3.2.0
@@ -484,9 +483,9 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
-   * @param limit 限制分片数，-1不限制
+   * @param limit     限制分片数，-1不限制
    * @return 切分后的集合
    * @since 3.1.0
    */
@@ -497,9 +496,9 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
-   * @param limit 限制分片数，-1不限制
+   * @param limit     限制分片数，-1不限制
    * @return 切分后的集合
    * @since 3.2.0
    */
@@ -510,9 +509,9 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串，不限制分片数量
    *
-   * @param str 被切分的字符串
-   * @param separator 分隔符字符
-   * @param isTrim 是否去除切分字符串后每个元素两边的空格
+   * @param str         被切分的字符串
+   * @param separator   分隔符字符
+   * @param isTrim      是否去除切分字符串后每个元素两边的空格
    * @param ignoreEmpty 是否忽略空串
    * @return 切分后的集合
    * @since 3.0.8
@@ -525,10 +524,10 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串
    *
-   * @param str 被切分的字符串
-   * @param separator 分隔符字符
-   * @param limit 限制分片数，-1不限制
-   * @param isTrim 是否去除切分字符串后每个元素两边的空格
+   * @param str         被切分的字符串
+   * @param separator   分隔符字符
+   * @param limit       限制分片数，-1不限制
+   * @param isTrim      是否去除切分字符串后每个元素两边的空格
    * @param ignoreEmpty 是否忽略空串
    * @return 切分后的集合
    * @since 3.0.8
@@ -544,10 +543,10 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串
    *
-   * @param str 被切分的字符串
-   * @param separator 分隔符字符
-   * @param limit 限制分片数，-1不限制
-   * @param isTrim 是否去除切分字符串后每个元素两边的空格
+   * @param str         被切分的字符串
+   * @param separator   分隔符字符
+   * @param limit       限制分片数，-1不限制
+   * @param isTrim      是否去除切分字符串后每个元素两边的空格
    * @param ignoreEmpty 是否忽略空串
    * @return 切分后的集合
    * @since 3.2.0
@@ -564,13 +563,13 @@ public class StringUtil extends StringUtils {
   /**
    * 切分字符串
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符
    * @return 字符串
    */
   public static String[] split(CharSequence str, CharSequence separator) {
     if (str == null) {
-      return new String[] {};
+      return new String[]{};
     }
 
     final String separatorStr = (null == separator) ? null : separator.toString();
@@ -587,7 +586,7 @@ public class StringUtil extends StringUtils {
    */
   public static String[] split(CharSequence str, int len) {
     if (null == str) {
-      return new String[] {};
+      return new String[]{};
     }
     return StrSplitter.splitByLength(str.toString(), len);
   }
@@ -595,7 +594,7 @@ public class StringUtil extends StringUtils {
   /**
    * 指定字符是否在字符串中出现过
    *
-   * @param str 字符串
+   * @param str        字符串
    * @param searchChar 被查找的字符
    * @return 是否包含
    * @since 3.1.2
@@ -607,7 +606,7 @@ public class StringUtil extends StringUtils {
   /**
    * 查找指定字符串是否包含指定字符串列表中的任意一个字符串
    *
-   * @param str 指定字符串
+   * @param str      指定字符串
    * @param testStrs 需要检查的字符串数组
    * @return 是否包含任意一个字符串
    * @since 3.2.0
@@ -619,7 +618,7 @@ public class StringUtil extends StringUtils {
   /**
    * 查找指定字符串是否包含指定字符串列表中的任意一个字符串，如果包含返回找到的第一个字符串
    *
-   * @param str 指定字符串
+   * @param str      指定字符串
    * @param testStrs 需要检查的字符串数组
    * @return 被包含的第一个字符串
    * @since 3.2.0
@@ -639,7 +638,7 @@ public class StringUtil extends StringUtils {
   /**
    * 是否包含特定字符，忽略大小写，如果给定两个参数都为<code>null</code>，返回true
    *
-   * @param str 被检测字符串
+   * @param str     被检测字符串
    * @param testStr 被测试是否包含的字符串
    * @return 是否包含
    */
@@ -652,10 +651,9 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 查找指定字符串是否包含指定字符串列表中的任意一个字符串<br>
-   * 忽略大小写
+   * 查找指定字符串是否包含指定字符串列表中的任意一个字符串<br> 忽略大小写
    *
-   * @param str 指定字符串
+   * @param str      指定字符串
    * @param testStrs 需要检查的字符串数组
    * @return 是否包含任意一个字符串
    * @since 3.2.0
@@ -665,10 +663,9 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 查找指定字符串是否包含指定字符串列表中的任意一个字符串，如果包含返回找到的第一个字符串<br>
-   * 忽略大小写
+   * 查找指定字符串是否包含指定字符串列表中的任意一个字符串，如果包含返回找到的第一个字符串<br> 忽略大小写
    *
-   * @param str 指定字符串
+   * @param str      指定字符串
    * @param testStrs 需要检查的字符串数组
    * @return 被包含的第一个字符串
    * @since 3.2.0
@@ -686,17 +683,14 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 改进JDK subString<br>
-   * index从0开始计算，最后一个字符为-1<br>
-   * 如果from和to位置一样，返回 "" <br>
+   * 改进JDK subString<br> index从0开始计算，最后一个字符为-1<br> 如果from和to位置一样，返回 "" <br>
    * 如果from或to为负数，则按照length从后向前数位置，如果绝对值大于字符串长度，则from归到0，to归到length<br>
-   * 如果经过修正的index中from大于to，则互换from和to example: <br>
-   * abcdefgh 2 3 =》 c <br>
-   * abcdefgh 2 -3 =》 cde <br>
+   * 如果经过修正的index中from大于to，则互换from和to example: <br> abcdefgh 2 3 =》 c <br> abcdefgh 2 -3 =》 cde
+   * <br>
    *
-   * @param str String
+   * @param str       String
    * @param fromIndex 开始的index（包括）
-   * @param toIndex 结束的index（不包括）
+   * @param toIndex   结束的index（不包括）
    * @return 字串
    */
   public static String sub(CharSequence str, int fromIndex, int toIndex) {
@@ -738,8 +732,7 @@ public class StringUtil extends StringUtils {
 
 
   /**
-   * 截取分隔字符串之前的字符串，不包括分隔字符串<br>
-   * 如果给定的字符串为空串（null或""）或者分隔字符串为null，返回原字符串<br>
+   * 截取分隔字符串之前的字符串，不包括分隔字符串<br> 如果给定的字符串为空串（null或""）或者分隔字符串为null，返回原字符串<br>
    * 如果分隔字符串为空串""，则返回空串，如果分隔字符串未找到，返回原字符串
    * <p>
    * 栗子：
@@ -755,8 +748,8 @@ public class StringUtil extends StringUtils {
    * StringUtil.subBefore("abc", null)  = "abc"
    * </pre>
    *
-   * @param string 被查找的字符串
-   * @param separator 分隔字符串（不包括）
+   * @param string          被查找的字符串
+   * @param separator       分隔字符串（不包括）
    * @param isLastSeparator 是否查找最后一个分隔字符串（多次出现分隔字符串时选取最后一个），true为选取最后一个
    * @return 切割后的字符串
    * @since 3.1.1
@@ -780,8 +773,7 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 截取分隔字符串之后的字符串，不包括分隔字符串<br>
-   * 如果给定的字符串为空串（null或""），返回原字符串<br>
+   * 截取分隔字符串之后的字符串，不包括分隔字符串<br> 如果给定的字符串为空串（null或""），返回原字符串<br>
    * 如果分隔字符串为空串（null或""），则返回空串，如果分隔字符串未找到，返回空串
    * <p>
    * 栗子：
@@ -797,8 +789,8 @@ public class StringUtil extends StringUtils {
    * StringUtil.subAfter("abc", "")    = "abc"
    * </pre>
    *
-   * @param string 被查找的字符串
-   * @param separator 分隔字符串（不包括）
+   * @param string          被查找的字符串
+   * @param separator       分隔字符串（不包括）
    * @param isLastSeparator 是否查找最后一个分隔字符串（多次出现分隔字符串时选取最后一个），true为选取最后一个
    * @return 切割后的字符串
    * @since 3.1.1
@@ -838,9 +830,9 @@ public class StringUtil extends StringUtils {
    * StringUtil.subBetween("yabczyabcz", "y", "z")   = "abc"
    * </pre>
    *
-   * @param str 被切割的字符串
+   * @param str    被切割的字符串
    * @param before 截取开始的字符串标识
-   * @param after 截取到的字符串标识
+   * @param after  截取到的字符串标识
    * @return 截取后的字符串
    * @since 3.1.1
    */
@@ -877,7 +869,7 @@ public class StringUtil extends StringUtils {
    * StringUtil.subBetween("tagabctag", "tag") = "abc"
    * </pre>
    *
-   * @param str 被切割的字符串
+   * @param str            被切割的字符串
    * @param beforeAndAfter 截取开始和结束的字符串标识
    * @return 截取后的字符串
    * @since 3.1.1
@@ -889,7 +881,7 @@ public class StringUtil extends StringUtils {
   /**
    * 去掉指定前缀
    *
-   * @param str 字符串
+   * @param str    字符串
    * @param prefix 前缀
    * @return 切掉后的字符串，若前缀不是 preffix， 返回原字符串
    */
@@ -908,7 +900,7 @@ public class StringUtil extends StringUtils {
   /**
    * 忽略大小写去掉指定前缀
    *
-   * @param str 字符串
+   * @param str    字符串
    * @param prefix 前缀
    * @return 切掉后的字符串，若前缀不是 prefix， 返回原字符串
    */
@@ -927,7 +919,7 @@ public class StringUtil extends StringUtils {
   /**
    * 去掉指定后缀
    *
-   * @param str 字符串
+   * @param str    字符串
    * @param suffix 后缀
    * @return 切掉后的字符串，若后缀不是 suffix， 返回原字符串
    */
@@ -946,7 +938,7 @@ public class StringUtil extends StringUtils {
   /**
    * 去掉指定后缀，并小写首字母
    *
-   * @param str 字符串
+   * @param str    字符串
    * @param suffix 后缀
    * @return 切掉后的字符串，若后缀不是 suffix， 返回原字符串
    */
@@ -957,7 +949,7 @@ public class StringUtil extends StringUtils {
   /**
    * 忽略大小写去掉指定后缀
    *
-   * @param str 字符串
+   * @param str    字符串
    * @param suffix 后缀
    * @return 切掉后的字符串，若后缀不是 suffix， 返回原字符串
    */
@@ -1008,7 +1000,7 @@ public class StringUtil extends StringUtils {
   /**
    * 切割指定位置之前部分的字符串
    *
-   * @param string 字符串
+   * @param string  字符串
    * @param toIndex 切割到的位置（不包括）
    * @return 切割后的剩余的前半部分字符串
    */
@@ -1019,7 +1011,7 @@ public class StringUtil extends StringUtils {
   /**
    * 切割指定位置之后部分的字符串
    *
-   * @param string 字符串
+   * @param string    字符串
    * @param fromIndex 切割开始的位置（包括）
    * @return 切割后后剩余的后半部分字符串
    */
@@ -1033,7 +1025,7 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找指定字符
    *
-   * @param str 字符串
+   * @param str        字符串
    * @param searchChar 被查找的字符
    * @return 位置
    */
@@ -1044,9 +1036,9 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找指定字符
    *
-   * @param str 字符串
+   * @param str        字符串
    * @param searchChar 被查找的字符
-   * @param start 起始位置，如果小于0，从0开始查找
+   * @param start      起始位置，如果小于0，从0开始查找
    * @return 位置
    */
   public static int indexOf(final CharSequence str, char searchChar, int start) {
@@ -1060,10 +1052,10 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找指定字符
    *
-   * @param str 字符串
+   * @param str        字符串
    * @param searchChar 被查找的字符
-   * @param start 起始位置，如果小于0，从0开始查找
-   * @param end 终止位置，如果超过str.length()则默认查找到字符串末尾
+   * @param start      起始位置，如果小于0，从0开始查找
+   * @param end        终止位置，如果超过str.length()则默认查找到字符串末尾
    * @return 位置
    */
   public static int indexOf(final CharSequence str, char searchChar, int start, int end) {
@@ -1099,7 +1091,7 @@ public class StringUtil extends StringUtils {
    * StringUtil.indexOfIgnoreCase("abc", "", 9)        = -1
    * </pre>
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param searchStr 需要查找位置的字符串
    * @return 位置
    * @since 3.2.1
@@ -1125,7 +1117,7 @@ public class StringUtil extends StringUtils {
    * StringUtil.indexOfIgnoreCase("abc", "", 9)        = -1
    * </pre>
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param searchStr 需要查找位置的字符串
    * @param fromIndex 起始位置
    * @return 位置
@@ -1139,9 +1131,9 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内反向查找字符串
    *
-   * @param str 字符串
-   * @param searchStr 需要查找位置的字符串
-   * @param fromIndex 起始位置
+   * @param str        字符串
+   * @param searchStr  需要查找位置的字符串
+   * @param fromIndex  起始位置
    * @param ignoreCase 是否忽略大小写
    * @return 位置
    * @since 3.2.1
@@ -1159,7 +1151,7 @@ public class StringUtil extends StringUtils {
     if (fromIndex > endLimit) {
       return INDEX_NOT_FOUND;
     }
-    if (searchStr.length() == 0) {
+    if (searchStr.isEmpty()) {
       return fromIndex;
     }
 
@@ -1179,7 +1171,7 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找字符串，忽略大小写<br>
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param searchStr 需要查找位置的字符串
    * @return 位置
    * @since 3.2.1
@@ -1191,7 +1183,7 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找字符串，忽略大小写<br>
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param searchStr 需要查找位置的字符串
    * @param fromIndex 起始位置，从后往前计数
    * @return 位置
@@ -1205,9 +1197,9 @@ public class StringUtil extends StringUtils {
   /**
    * 指定范围内查找字符串<br>
    *
-   * @param str 字符串
-   * @param searchStr 需要查找位置的字符串
-   * @param fromIndex 起始位置，从后往前计数
+   * @param str        字符串
+   * @param searchStr  需要查找位置的字符串
+   * @param fromIndex  起始位置，从后往前计数
    * @param ignoreCase 是否忽略大小写
    * @return 位置
    * @since 3.2.1
@@ -1222,7 +1214,7 @@ public class StringUtil extends StringUtils {
     }
     fromIndex = Math.min(fromIndex, str.length());
 
-    if (searchStr.length() == 0) {
+    if (searchStr.isEmpty()) {
       return fromIndex;
     }
 
@@ -1240,8 +1232,7 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 返回字符串 searchStr 在字符串 str 中第 ordinal 次出现的位置。<br>
-   * 此方法来自：Apache-Commons-Lang
+   * 返回字符串 searchStr 在字符串 str 中第 ordinal 次出现的位置。<br> 此方法来自：Apache-Commons-Lang
    * <p>
    * 栗子（*代表任意字符）：
    *
@@ -1259,9 +1250,9 @@ public class StringUtil extends StringUtils {
    * StringUtil.ordinalIndexOf("aabaabaa", "", 2)   = 0
    * </pre>
    *
-   * @param str 被检查的字符串，可以为null
+   * @param str       被检查的字符串，可以为null
    * @param searchStr 被查找的字符串，可以为null
-   * @param ordinal 第几次出现的位置
+   * @param ordinal   第几次出现的位置
    * @return 查找到的位置
    * @since 3.2.3
    */
@@ -1269,7 +1260,7 @@ public class StringUtil extends StringUtils {
     if (str == null || searchStr == null || ordinal <= 0) {
       return INDEX_NOT_FOUND;
     }
-    if (searchStr.length() == 0) {
+    if (searchStr.isEmpty()) {
       return 0;
     }
     int found = 0;
@@ -1285,14 +1276,13 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 截取两个字符串的不同部分（长度一致），判断截取的子串是否相同<br>
-   * 任意一个字符串为null返回false
+   * 截取两个字符串的不同部分（长度一致），判断截取的子串是否相同<br> 任意一个字符串为null返回false
    *
-   * @param str1 第一个字符串
-   * @param start1 第一个字符串开始的位置
-   * @param str2 第二个字符串
-   * @param start2 第二个字符串开始的位置
-   * @param length 截取长度
+   * @param str1       第一个字符串
+   * @param start1     第一个字符串开始的位置
+   * @param str2       第二个字符串
+   * @param start2     第二个字符串开始的位置
+   * @param length     截取长度
    * @param ignoreCase 是否忽略大小写
    * @return 子串是否相同
    * @since 3.2.1
@@ -1347,8 +1337,8 @@ public class StringUtil extends StringUtils {
   /**
    * 比较两个字符串是否相等。
    *
-   * @param str1 要比较的字符串1
-   * @param str2 要比较的字符串2
+   * @param str1       要比较的字符串1
+   * @param str2       要比较的字符串2
    * @param ignoreCase 是否忽略大小写
    * @return 如果两个字符串相同，或者都是<code>null</code>，则返回<code>true</code>
    * @since 3.2.0
@@ -1406,7 +1396,7 @@ public class StringUtil extends StringUtils {
   /**
    * 创建StringBuilder对象
    *
-   * @param sb 初始StringBuilder
+   * @param sb   初始StringBuilder
    * @param strs 初始字符串列表
    * @return {String}Builder对象
    */
@@ -1440,8 +1430,7 @@ public class StringUtil extends StringUtils {
   }
 
   /**
-   * 统计指定内容中包含指定字符串的数量<br>
-   * 参数为 {@code null} 或者 "" 返回 {@code 0}.
+   * 统计指定内容中包含指定字符串的数量<br> 参数为 {@code null} 或者 "" 返回 {@code 0}.
    *
    * <pre>
    * StringUtil.count(null, *)       = 0
@@ -1453,7 +1442,7 @@ public class StringUtil extends StringUtils {
    * StringUtil.count("abba", "xxx") = 0
    * </pre>
    *
-   * @param content 被查找的字符串
+   * @param content      被查找的字符串
    * @param strForSearch 需要查找的字符串
    * @return 查找到的个数
    */
@@ -1476,7 +1465,7 @@ public class StringUtil extends StringUtils {
   /**
    * 统计指定内容中包含指定字符的数量
    *
-   * @param content 内容
+   * @param content       内容
    * @param charForSearch 被统计的字符
    * @return 包含数量
    */
@@ -1507,7 +1496,7 @@ public class StringUtil extends StringUtils {
     StringBuilder result = new StringBuilder();
     String[] a = para.split("_");
     for (String s : a) {
-      if (result.length() == 0) {
+      if (result.isEmpty()) {
         result.append(s.toLowerCase());
       } else {
         result.append(s.substring(0, 1).toUpperCase());
@@ -1552,7 +1541,7 @@ public class StringUtil extends StringUtils {
     StringBuilder result = new StringBuilder();
     String[] a = para.split("-");
     for (String s : a) {
-      if (result.length() == 0) {
+      if (result.isEmpty()) {
         result.append(s.toLowerCase());
       } else {
         result.append(s.substring(0, 1).toUpperCase());

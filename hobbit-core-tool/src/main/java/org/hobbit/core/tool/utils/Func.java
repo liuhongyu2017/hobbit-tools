@@ -1,5 +1,8 @@
 package org.hobbit.core.tool.utils;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
@@ -35,9 +38,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.PatternMatchUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * 工具集合包，工具类快捷方式
@@ -49,13 +49,13 @@ public class Func {
 
   /**
    * 断言，必须不能为 null <blockquote>
-   * 
+   *
    * <pre>
    * public Foo(Bar bar) {
    *   this.bar = $.requireNotNull(bar);
    * }
    * </pre>
-   * 
+   *
    * </blockquote>
    *
    * @param obj the object reference to check for nullity
@@ -69,20 +69,20 @@ public class Func {
 
   /**
    * 断言，必须不能为 null <blockquote>
-   * 
+   *
    * <pre>
    * public Foo(Bar bar, Baz baz) {
    *   this.bar = $.requireNotNull(bar, "bar must not be null");
    *   this.baz = $.requireNotNull(baz, "baz must not be null");
    * }
    * </pre>
-   * 
+   *
    * </blockquote>
    *
-   * @param obj the object reference to check for nullity
+   * @param obj     the object reference to check for nullity
    * @param message detail message to be used in the event that a {@code NullPointerException} is
-   *        thrown
-   * @param <T> the type of the reference
+   *                thrown
+   * @param <T>     the type of the reference
    * @return {@code obj} if not {@code null}
    * @throws NullPointerException if {@code obj} is {@code null}
    */
@@ -92,19 +92,19 @@ public class Func {
 
   /**
    * 断言，必须不能为 null <blockquote>
-   * 
+   *
    * <pre>
    * public Foo(Bar bar, Baz baz) {
    *   this.bar = $.requireNotNull(bar, () -> "bar must not be null");
    * }
    * </pre>
-   * 
+   *
    * </blockquote>
    *
-   * @param obj the object reference to check for nullity
-   * @param messageSupplier supplier of the detail message to be used in the event that a {@code
-   *                        NullPointerException} is thrown
-   * @param <T> the type of the reference
+   * @param obj             the object reference to check for nullity
+   * @param messageSupplier supplier of the detail message to be used in the event that a
+   *                        {@code NullPointerException} is thrown
+   * @param <T>             the type of the reference
    * @return {@code obj} if not {@code null}
    * @throws NullPointerException if {@code obj} is {@code null}
    */
@@ -115,8 +115,8 @@ public class Func {
   /**
    * 判断对象是否为null
    * <p>
-   * This method exists to be used as a {@link java.util.function.Predicate}, {@code
-   * filter($::isNull)}
+   * This method exists to be used as a {@link java.util.function.Predicate},
+   * {@code filter($::isNull)}
    * </p>
    *
    * @param obj a reference to be checked against {@code null}
@@ -130,8 +130,8 @@ public class Func {
   /**
    * 判断对象是否 not null
    * <p>
-   * This method exists to be used as a {@link java.util.function.Predicate}, {@code
-   * filter($::notNull)}
+   * This method exists to be used as a {@link java.util.function.Predicate},
+   * {@code filter($::notNull)}
    * </p>
    *
    * @param obj a reference to be checked against {@code null}
@@ -164,7 +164,7 @@ public class Func {
 
   /**
    * 判断是否为空字符串
-   * 
+   *
    * <pre class="code">
    * $.isBlank(null)		= true
    * $.isBlank("")		= true
@@ -175,7 +175,7 @@ public class Func {
    *
    * @param cs the {@code CharSequence} to check (may be {@code null})
    * @return {@code true} if the {@code CharSequence} is not {@code null}, its length is greater
-   *         than 0, and it does not contain whitespace only
+   * than 0, and it does not contain whitespace only
    * @see Character#isWhitespace
    */
   public static boolean isBlank(@Nullable final CharSequence cs) {
@@ -184,7 +184,7 @@ public class Func {
 
   /**
    * 判断不为空字符串
-   * 
+   *
    * <pre>
    * $.isNotBlank(null)	= false
    * $.isNotBlank("")		= false
@@ -307,7 +307,7 @@ public class Func {
    * use: format("my name is ${name}, and i like ${like}!", {"name":"L.cm", "like": "Java"})
    *
    * @param message 需要转换的字符串
-   * @param params 转换所需的键值对集合
+   * @param params  转换所需的键值对集合
    * @return 转换后的字符串
    */
   public static String format(@Nullable String message, @Nullable Map<String, ?> params) {
@@ -319,7 +319,7 @@ public class Func {
    * <p>
    * use: format("my name is {}, and i like {}!", "L.cm", "Java")
    *
-   * @param message 需要转换的字符串
+   * @param message   需要转换的字符串
    * @param arguments 需要替换的变量
    * @return 转换后的字符串
    */
@@ -338,8 +338,7 @@ public class Func {
   }
 
   /**
-   * 比较两个对象是否相等。<br>
-   * 相同的条件有两个，满足其一即可：<br>
+   * 比较两个对象是否相等。<br> 相同的条件有两个，满足其一即可：<br>
    *
    * @param obj1 对象1
    * @param obj2 对象2
@@ -365,9 +364,9 @@ public class Func {
   /**
    * 判断数组中是否包含元素
    *
-   * @param array the Array to check
+   * @param array   the Array to check
    * @param element the element to look for
-   * @param <T> The generic tag
+   * @param <T>     The generic tag
    * @return {@code true} if found, {@code false} else
    */
   public static <T> boolean contains(@Nullable T[] array, final T element) {
@@ -378,7 +377,7 @@ public class Func {
    * 判断迭代器中是否包含元素
    *
    * @param iterator the Iterator to check
-   * @param element the element to look for
+   * @param element  the element to look for
    * @return {@code true} if found, {@code false} otherwise
    */
   public static boolean contains(@Nullable Iterator<?> iterator, Object element) {
@@ -389,7 +388,7 @@ public class Func {
    * 判断枚举是否包含该元素
    *
    * @param enumeration the Enumeration to check
-   * @param element the element to look for
+   * @param element     the element to look for
    * @return {@code true} if found, {@code false} otherwise
    */
   public static boolean contains(@Nullable Enumeration<?> enumeration, Object element) {
@@ -399,7 +398,7 @@ public class Func {
   /**
    * 不可变 Set
    *
-   * @param es 对象
+   * @param es  对象
    * @param <E> 泛型
    * @return 集合
    */
@@ -411,7 +410,7 @@ public class Func {
   /**
    * 不可变 List
    *
-   * @param es 对象
+   * @param es  对象
    * @param <E> 泛型
    * @return 集合
    */
@@ -433,7 +432,7 @@ public class Func {
   /**
    * 强转string,并去掉多余空格
    *
-   * @param str 字符串
+   * @param str          字符串
    * @param defaultValue 默认值
    * @return {String}
    */
@@ -447,7 +446,7 @@ public class Func {
   /**
    * 强转string(包含空字符串),并去掉多余空格
    *
-   * @param str 字符串
+   * @param str          字符串
    * @param defaultValue 默认值
    * @return {String}
    */
@@ -494,7 +493,7 @@ public class Func {
    *   $.toInt("1", 0)  = 1
    * </pre>
    *
-   * @param str the string to convert, may be null
+   * @param str          the string to convert, may be null
    * @param defaultValue the default value
    * @return the int represented by the string, or the default if conversion fails
    */
@@ -527,7 +526,7 @@ public class Func {
    *   $.toLong("1", 0L)  = 1L
    * </pre>
    *
-   * @param str the string to convert, may be null
+   * @param str          the string to convert, may be null
    * @param defaultValue the default value
    * @return the long represented by the string, or the default if conversion fails
    */
@@ -574,7 +573,7 @@ public class Func {
    *   $.toDouble("1", 0)  = 1.0
    * </pre>
    *
-   * @param value the string to convert, may be null
+   * @param value        the string to convert, may be null
    * @param defaultValue the default value
    * @return the int represented by the string, or the default if conversion fails
    */
@@ -621,7 +620,7 @@ public class Func {
    *   $.toFloat("1", 0)  = 1.00f
    * </pre>
    *
-   * @param value the string to convert, may be null
+   * @param value        the string to convert, may be null
    * @param defaultValue the default value
    * @return the int represented by the string, or the default if conversion fails
    */
@@ -668,7 +667,7 @@ public class Func {
    *   $.toBoolean("", false)  	= false
    * </pre>
    *
-   * @param value the string to convert, may be null
+   * @param value        the string to convert, may be null
    * @param defaultValue the default value
    * @return the int represented by the string, or the default if conversion fails
    */
@@ -695,12 +694,12 @@ public class Func {
    * 转换为Integer数组<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static Integer[] toIntArray(String split, String str) {
     if (ObjectUtil.isEmpty(str)) {
-      return new Integer[] {};
+      return new Integer[]{};
     }
     String[] arr = str.split(split);
     final Integer[] ints = new Integer[arr.length];
@@ -725,7 +724,7 @@ public class Func {
    * 转换为Integer集合<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static List<Integer> toIntList(String split, String str) {
@@ -746,7 +745,7 @@ public class Func {
    * 获取第一位Integer数值
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static Integer firstInt(String split, String str) {
@@ -772,12 +771,12 @@ public class Func {
    * 转换为Long数组<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static Long[] toLongArray(String split, String str) {
     if (ObjectUtil.isEmpty(str)) {
-      return new Long[] {};
+      return new Long[]{};
     }
     String[] arr = str.split(split);
     final Long[] longs = new Long[arr.length];
@@ -802,7 +801,7 @@ public class Func {
    * 转换为Long集合<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static List<Long> toLongList(String split, String str) {
@@ -823,7 +822,7 @@ public class Func {
    * 获取第一位Long数值
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static Long firstLong(String split, String str) {
@@ -849,12 +848,12 @@ public class Func {
    * 转换为String数组<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static String[] toStrArray(String split, String str) {
     if (isBlank(str)) {
-      return new String[] {};
+      return new String[]{};
     }
     return str.split(split);
   }
@@ -873,7 +872,7 @@ public class Func {
    * 转换为String集合<br>
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static List<String> toStrList(String split, String str) {
@@ -894,7 +893,7 @@ public class Func {
    * 获取第一位String数值
    *
    * @param split 分隔符
-   * @param str 被转换的值
+   * @param str   被转换的值
    * @return 结果
    */
   public static String firstStr(String split, String str) {
@@ -929,7 +928,7 @@ public class Func {
   /**
    * 将集合拼接成字符串，默认指定分隔符
    *
-   * @param coll the {@code Collection} to convert
+   * @param coll  the {@code Collection} to convert
    * @param delim the delimiter to use (typically a ",")
    * @return the delimited {@code String}
    */
@@ -950,7 +949,7 @@ public class Func {
   /**
    * 将数组拼接成字符串，默认指定分隔符
    *
-   * @param arr the array to display
+   * @param arr   the array to display
    * @param delim the delimiter to use (typically a ",")
    * @return the delimited {@code String}
    */
@@ -961,7 +960,7 @@ public class Func {
   /**
    * 切分字符串，不去除切分后每个元素两边的空白符，不去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
    * @return 切分后的集合
    */
@@ -972,7 +971,7 @@ public class Func {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
    * @return 切分后的集合
    */
@@ -983,7 +982,7 @@ public class Func {
   /**
    * 切分字符串，去除切分后每个元素两边的空白符，去除空白项
    *
-   * @param str 被切分的字符串
+   * @param str       被切分的字符串
    * @param separator 分隔符字符
    * @return 切分后的集合
    */
@@ -994,7 +993,7 @@ public class Func {
   /**
    * 分割 字符串
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param delimiter 分割符
    * @return 字符串数组
    */
@@ -1005,7 +1004,7 @@ public class Func {
   /**
    * 分割 字符串 删除常见 空白符
    *
-   * @param str 字符串
+   * @param str       字符串
    * @param delimiter 分割符
    * @return 字符串数组
    */
@@ -1021,7 +1020,7 @@ public class Func {
    * </p>
    *
    * @param pattern 表达式
-   * @param str 字符串
+   * @param str     字符串
    * @return 是否匹配
    */
   public static boolean simpleMatch(@Nullable String pattern, @Nullable String str) {
@@ -1036,7 +1035,7 @@ public class Func {
    * </p>
    *
    * @param patterns 表达式 数组
-   * @param str 字符串
+   * @param str      字符串
    * @return 是否匹配
    */
   public static boolean simpleMatch(@Nullable String[] patterns, String str) {
@@ -1075,7 +1074,7 @@ public class Func {
   /**
    * 随机数生成
    *
-   * @param count 字符长度
+   * @param count      字符长度
    * @param randomType 随机数类别
    * @return 随机数
    */
@@ -1208,7 +1207,7 @@ public class Func {
    * hmacMd5 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacMd5Hex(String data, String key) {
@@ -1219,7 +1218,7 @@ public class Func {
    * hmacMd5 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacMd5Hex(final byte[] bytes, String key) {
@@ -1230,7 +1229,7 @@ public class Func {
    * hmacSha1 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha1Hex(String data, String key) {
@@ -1241,7 +1240,7 @@ public class Func {
    * hmacSha1 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha1Hex(final byte[] bytes, String key) {
@@ -1252,7 +1251,7 @@ public class Func {
    * hmacSha224 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha224Hex(String data, String key) {
@@ -1263,7 +1262,7 @@ public class Func {
    * hmacSha224 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha224Hex(final byte[] bytes, String key) {
@@ -1274,7 +1273,7 @@ public class Func {
    * hmacSha256 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha256Hex(String data, String key) {
@@ -1285,7 +1284,7 @@ public class Func {
    * hmacSha256 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha256Hex(final byte[] bytes, String key) {
@@ -1296,7 +1295,7 @@ public class Func {
    * hmacSha384 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha384Hex(String data, String key) {
@@ -1307,7 +1306,7 @@ public class Func {
    * hmacSha384 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha384Hex(final byte[] bytes, String key) {
@@ -1318,7 +1317,7 @@ public class Func {
    * hmacSha512 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha512Hex(String data, String key) {
@@ -1329,7 +1328,7 @@ public class Func {
    * hmacSha512 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha512Hex(final byte[] bytes, String key) {
@@ -1369,7 +1368,7 @@ public class Func {
   /**
    * Base64编码
    *
-   * @param value 字符串
+   * @param value   字符串
    * @param charset 字符集
    * @return {String}
    */
@@ -1390,7 +1389,7 @@ public class Func {
   /**
    * Base64编码为URL安全
    *
-   * @param value 字符串
+   * @param value   字符串
    * @param charset 字符集
    * @return {String}
    */
@@ -1411,7 +1410,7 @@ public class Func {
   /**
    * Base64解码
    *
-   * @param value 字符串
+   * @param value   字符串
    * @param charset 字符集
    * @return {String}
    */
@@ -1432,7 +1431,7 @@ public class Func {
   /**
    * Base64URL安全解码
    *
-   * @param value 字符串
+   * @param value   字符串
    * @param charset 字符集
    * @return {String}
    */
@@ -1463,7 +1462,7 @@ public class Func {
   /**
    * InputStream to String
    *
-   * @param input the <code>InputStream</code> to read from
+   * @param input   the <code>InputStream</code> to read from
    * @param charset the <code>Charset</code>
    * @return the requested String
    * @throws NullPointerException if the input is null
@@ -1495,7 +1494,7 @@ public class Func {
   /**
    * 读取文件为字符串
    *
-   * @param file the file to read, must not be {@code null}
+   * @param file     the file to read, must not be {@code null}
    * @param encoding the encoding to use, {@code null} means platform default
    * @return the file contents, never {@code null}
    */
@@ -1576,9 +1575,9 @@ public class Func {
   /**
    * 将json byte 数组反序列化成对象
    *
-   * @param bytes json bytes
+   * @param bytes     json bytes
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(byte[] bytes, Class<T> valueType) {
@@ -1589,8 +1588,8 @@ public class Func {
    * 将json反序列化成对象
    *
    * @param jsonString jsonString
-   * @param valueType class
-   * @param <T> T 泛型标记
+   * @param valueType  class
+   * @param <T>        T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(String jsonString, Class<T> valueType) {
@@ -1600,9 +1599,9 @@ public class Func {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in        InputStream
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(InputStream in, Class<T> valueType) {
@@ -1612,9 +1611,9 @@ public class Func {
   /**
    * 将json反序列化成对象
    *
-   * @param bytes bytes
+   * @param bytes         bytes
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(byte[] bytes, TypeReference<T> typeReference) {
@@ -1624,9 +1623,9 @@ public class Func {
   /**
    * 将json反序列化成对象
    *
-   * @param jsonString jsonString
+   * @param jsonString    jsonString
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(String jsonString, TypeReference<T> typeReference) {
@@ -1636,9 +1635,9 @@ public class Func {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in            InputStream
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T readJson(InputStream in, TypeReference<T> typeReference) {
@@ -1658,7 +1657,7 @@ public class Func {
   /**
    * url 编码
    *
-   * @param source the String to be encoded
+   * @param source  the String to be encoded
    * @param charset the character encoding to encode to
    * @return the encoded String
    */
@@ -1682,7 +1681,7 @@ public class Func {
   /**
    * url 解码
    *
-   * @param source the encoded String
+   * @param source  the encoded String
    * @param charset the character encoding to use
    * @return the decoded value
    * @throws IllegalArgumentException when the given source contains invalid encoded sequences
@@ -1726,7 +1725,7 @@ public class Func {
   /**
    * 对象格式化 支持数字，date，java8时间
    *
-   * @param object 格式化对象
+   * @param object  格式化对象
    * @param pattern 表达式
    * @return 格式化后的字符串
    */
@@ -1757,7 +1756,7 @@ public class Func {
    * 将字符串转换为时间
    *
    * @param dateStr 时间字符串
-   * @param format ConcurrentDateFormat
+   * @param format  ConcurrentDateFormat
    * @return 时间
    */
   public static Date parse(String dateStr, ConcurrentDateFormat format) {
@@ -1797,7 +1796,7 @@ public class Func {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -1818,7 +1817,7 @@ public class Func {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -1839,7 +1838,7 @@ public class Func {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -1861,7 +1860,7 @@ public class Func {
    * 时间比较
    *
    * @param startInclusive the start instant, inclusive, not null
-   * @param endExclusive the end instant, exclusive, not null
+   * @param endExclusive   the end instant, exclusive, not null
    * @return a {@code Duration}, not null
    */
   public static Duration between(Temporal startInclusive, Temporal endExclusive) {
@@ -1872,7 +1871,7 @@ public class Func {
    * 比较2个 时间差
    *
    * @param startDate 开始时间
-   * @param endDate 结束时间
+   * @param endDate   结束时间
    * @return 时间间隔
    */
   public static Duration between(Date startDate, Date endDate) {
@@ -1882,12 +1881,12 @@ public class Func {
   /**
    * 对象类型转换
    *
-   * @param source the source object
+   * @param source     the source object
    * @param targetType the target type
-   * @param <T> 泛型标记
+   * @param <T>        泛型标记
    * @return the converted value
    * @throws IllegalArgumentException if targetType is {@code null}, or sourceType is {@code null}
-   *         but source is not {@code null}
+   *                                  but source is not {@code null}
    */
   @Nullable
   public static <T> T convert(@Nullable Object source, Class<T> targetType) {
@@ -1897,13 +1896,13 @@ public class Func {
   /**
    * 对象类型转换
    *
-   * @param source the source object
+   * @param source     the source object
    * @param sourceType the source type
    * @param targetType the target type
-   * @param <T> 泛型标记
+   * @param <T>        泛型标记
    * @return the converted value
    * @throws IllegalArgumentException if targetType is {@code null}, or sourceType is {@code null}
-   *         but source is not {@code null}
+   *                                  but source is not {@code null}
    */
   @Nullable
   public static <T> T convert(@Nullable Object source, TypeDescriptor sourceType,
@@ -1914,12 +1913,12 @@ public class Func {
   /**
    * 对象类型转换
    *
-   * @param source the source object
+   * @param source     the source object
    * @param targetType the target type
-   * @param <T> 泛型标记
+   * @param <T>        泛型标记
    * @return the converted value
    * @throws IllegalArgumentException if targetType is {@code null}, or sourceType is {@code null}
-   *         but source is not {@code null}
+   *                                  but source is not {@code null}
    */
   @Nullable
   public static <T> T convert(@Nullable Object source, TypeDescriptor targetType) {
@@ -1929,7 +1928,7 @@ public class Func {
   /**
    * 获取方法参数信息
    *
-   * @param constructor 构造器
+   * @param constructor    构造器
    * @param parameterIndex 参数序号
    * @return {MethodParameter}
    */
@@ -1940,7 +1939,7 @@ public class Func {
   /**
    * 获取方法参数信息
    *
-   * @param method 方法
+   * @param method         方法
    * @param parameterIndex 参数序号
    * @return {MethodParameter}
    */
@@ -1952,8 +1951,8 @@ public class Func {
    * 获取Annotation注解
    *
    * @param annotatedElement AnnotatedElement
-   * @param annotationType 注解类
-   * @param <A> 泛型标记
+   * @param annotationType   注解类
+   * @param <A>              泛型标记
    * @return {Annotation}
    */
   @Nullable
@@ -1965,9 +1964,9 @@ public class Func {
   /**
    * 获取Annotation，先找方法，没有则再找方法上的类
    *
-   * @param method Method
+   * @param method         Method
    * @param annotationType 注解类
-   * @param <A> 泛型标记
+   * @param <A>            泛型标记
    * @return {Annotation}
    */
   @Nullable
@@ -1978,9 +1977,9 @@ public class Func {
   /**
    * 获取Annotation，先找HandlerMethod，没有则再找对应的类
    *
-   * @param handlerMethod HandlerMethod
+   * @param handlerMethod  HandlerMethod
    * @param annotationType 注解类
-   * @param <A> 泛型标记
+   * @param <A>            泛型标记
    * @return {Annotation}
    */
   @Nullable
@@ -1993,7 +1992,7 @@ public class Func {
    * 实例化对象
    *
    * @param clazz 类
-   * @param <T> 泛型标记
+   * @param <T>   泛型标记
    * @return 对象
    */
   @SuppressWarnings("unchecked")
@@ -2005,7 +2004,7 @@ public class Func {
    * 实例化对象
    *
    * @param clazzStr 类名
-   * @param <T> 泛型标记
+   * @param <T>      泛型标记
    * @return 对象
    */
   public static <T> T newInstance(String clazzStr) {
@@ -2015,7 +2014,7 @@ public class Func {
   /**
    * 获取Bean的属性
    *
-   * @param bean bean
+   * @param bean         bean
    * @param propertyName 属性名
    * @return 属性值
    */
@@ -2027,9 +2026,9 @@ public class Func {
   /**
    * 设置Bean属性
    *
-   * @param bean bean
+   * @param bean         bean
    * @param propertyName 属性名
-   * @param value 属性值
+   * @param value        属性值
    */
   public static void setProperty(Object bean, String propertyName, Object value) {
     BeanUtil.setProperty(bean, propertyName, value);
@@ -2039,7 +2038,7 @@ public class Func {
    * 浅复制
    *
    * @param source 源对象
-   * @param <T> 泛型标记
+   * @param <T>    泛型标记
    * @return T
    */
   @Nullable
@@ -2051,8 +2050,8 @@ public class Func {
    * 拷贝对象，支持 Map 和 Bean
    *
    * @param source 源对象
-   * @param clazz 类名
-   * @param <T> 泛型标记
+   * @param clazz  类名
+   * @param <T>    泛型标记
    * @return T
    */
   @Nullable
@@ -2063,7 +2062,7 @@ public class Func {
   /**
    * 拷贝对象，支持 Map 和 Bean
    *
-   * @param source 源对象
+   * @param source     源对象
    * @param targetBean 需要赋值的对象
    */
   public static void copy(@Nullable Object source, @Nullable Object targetBean) {
@@ -2077,7 +2076,7 @@ public class Func {
    * 支持 map bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source     源对象
    * @param targetBean 需要赋值的对象
    */
   public static void copyNonNull(@Nullable Object source, @Nullable Object targetBean) {
@@ -2088,8 +2087,8 @@ public class Func {
    * 拷贝对象，并对不同类型属性进行转换
    *
    * @param source 源对象
-   * @param clazz 类名
-   * @param <T> 泛型标记
+   * @param clazz  类名
+   * @param <T>    泛型标记
    * @return T
    */
   @Nullable
@@ -2104,9 +2103,9 @@ public class Func {
    * 支持 map bean copy
    * </p>
    *
-   * @param sourceList 源列表
+   * @param sourceList  源列表
    * @param targetClazz 转换成的类型
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    */
   public static <T> List<T> copy(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -2120,9 +2119,9 @@ public class Func {
    * 支持 map bean copy
    * </p>
    *
-   * @param sourceList 源对象列表
+   * @param sourceList  源对象列表
    * @param targetClazz 转换成的类
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return List
    */
   public static <T> List<T> copyWithConvert(@Nullable Collection<?> sourceList,
@@ -2134,8 +2133,8 @@ public class Func {
    * 拷贝对象，扩展 Spring 的拷贝方法
    *
    * @param source the source bean
-   * @param clazz the target bean class
-   * @param <T> 泛型标记
+   * @param clazz  the target bean class
+   * @param <T>    泛型标记
    * @return T
    * @throws BeansException if the copying failed
    */
@@ -2148,9 +2147,9 @@ public class Func {
   /**
    * 拷贝列表对象，扩展 Spring 的拷贝方法
    *
-   * @param sourceList the source list bean
+   * @param sourceList  the source list bean
    * @param targetClazz the target bean class
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return List
    * @throws BeansException if the copying failed
    */
@@ -2172,9 +2171,9 @@ public class Func {
   /**
    * 将map 转为 bean
    *
-   * @param beanMap map
+   * @param beanMap   map
    * @param valueType 对象类型
-   * @param <T> 泛型标记
+   * @param <T>       泛型标记
    * @return {T}
    */
   public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {

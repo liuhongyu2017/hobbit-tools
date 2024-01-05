@@ -58,15 +58,16 @@ public class INetUtil {
   }
 
   /**
-   * https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java
+   * <a
+   * href="https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java">...</a>
    *
    * <p>
    * Returns an <code>InetAddress</code> object encapsulating what is most likely the machine's LAN
    * IP address.
    * <p/>
    * This method is intended for use as a replacement of JDK method
-   * <code>InetAddress.getLocalHost</code>, because that method is ambiguous on Linux systems. Linux
-   * systems enumerate the loopback network interface the same way as regular LAN network
+   * <code>InetAddress.getLocalHost</code>, because that method is ambiguous on Linux systems.
+   * Linux systems enumerate the loopback network interface the same way as regular LAN network
    * interfaces, but the JDK <code>InetAddress.getLocalHost</code> method does not specify the
    * algorithm used to select the address returned under such circumstances, and will often return
    * the loopback address, which is not valid for network communication. Details
@@ -90,10 +91,10 @@ public class INetUtil {
       InetAddress candidateAddress = null;
       // Iterate all NICs (network interface cards)...
       for (Enumeration<?> ifaces = NetworkInterface.getNetworkInterfaces(); ifaces
-          .hasMoreElements();) {
+          .hasMoreElements(); ) {
         NetworkInterface iface = (NetworkInterface) ifaces.nextElement();
         // Iterate all IP addresses assigned to each card...
-        for (Enumeration<?> inetAddrs = iface.getInetAddresses(); inetAddrs.hasMoreElements();) {
+        for (Enumeration<?> inetAddrs = iface.getInetAddresses(); inetAddrs.hasMoreElements(); ) {
           InetAddress inetAddr = (InetAddress) inetAddrs.nextElement();
           if (!inetAddr.isLoopbackAddress()) {
 

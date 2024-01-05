@@ -1,6 +1,8 @@
 package org.hobbit.core.boot.config;
 
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.boot.prop.HobbitUploadProperties;
 import org.hobbit.core.context.props.HobbitFileProperties;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -10,12 +12,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * web 配置
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

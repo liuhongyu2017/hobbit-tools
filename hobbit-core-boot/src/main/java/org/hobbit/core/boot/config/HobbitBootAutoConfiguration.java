@@ -1,14 +1,14 @@
 package org.hobbit.core.boot.config;
 
+import lombok.AllArgsConstructor;
 import org.hobbit.core.context.YamlPropertySourceFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
-import lombok.AllArgsConstructor;
 
 /**
  * hobbit 自动装配
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

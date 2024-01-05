@@ -1,16 +1,15 @@
 package org.hobbit.core.tool.jackson;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  * 大整数序列化为 String 字符串，避免浏览器丢失精度
  *
  * <p>
- * 前端建议采用： bignumber 库： https://github.com/MikeMcl/bignumber.js decimal.js 库：
- * https://github.com/MikeMcl/decimal.js
+ * 前端建议采用： bignumber 库：
  * </p>
  *
  * @author lhy

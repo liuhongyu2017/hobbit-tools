@@ -31,7 +31,7 @@ public class AesUtil {
   /**
    * 加密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -42,8 +42,8 @@ public class AesUtil {
   /**
    * 加密
    *
-   * @param content 文本内容
-   * @param charset 编码
+   * @param content    文本内容
+   * @param charset    编码
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -54,7 +54,7 @@ public class AesUtil {
   /**
    * 加密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -65,7 +65,7 @@ public class AesUtil {
   /**
    * hex加密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -76,7 +76,7 @@ public class AesUtil {
   /**
    * hex加密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -87,7 +87,7 @@ public class AesUtil {
   /**
    * Base64加密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -98,7 +98,7 @@ public class AesUtil {
   /**
    * Base64加密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -109,7 +109,7 @@ public class AesUtil {
   /**
    * hex解密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -125,7 +125,7 @@ public class AesUtil {
   /**
    * hex解密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -140,7 +140,7 @@ public class AesUtil {
   /**
    * hex解密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -151,7 +151,7 @@ public class AesUtil {
   /**
    * Base64解密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -167,7 +167,7 @@ public class AesUtil {
   /**
    * Base64解密
    *
-   * @param content 文本内容
+   * @param content    文本内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -182,7 +182,7 @@ public class AesUtil {
   /**
    * Base64解密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -193,7 +193,7 @@ public class AesUtil {
   /**
    * 解密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return {String}
    */
@@ -204,7 +204,7 @@ public class AesUtil {
   /**
    * 解密
    *
-   * @param content 内容
+   * @param content    内容
    * @param aesTextKey 文本密钥
    * @return byte[]
    */
@@ -216,7 +216,7 @@ public class AesUtil {
    * 解密
    *
    * @param content 内容
-   * @param aesKey 密钥
+   * @param aesKey  密钥
    * @return byte[]
    */
   public static byte[] encrypt(byte[] content, byte[] aesKey) {
@@ -227,7 +227,7 @@ public class AesUtil {
    * 加密
    *
    * @param encrypted 内容
-   * @param aesKey 密钥
+   * @param aesKey    密钥
    * @return byte[]
    */
   public static byte[] decrypt(byte[] encrypted, byte[] aesKey) {
@@ -238,8 +238,8 @@ public class AesUtil {
    * ase加密
    *
    * @param encrypted 内容
-   * @param aesKey 密钥
-   * @param mode 模式
+   * @param aesKey    密钥
+   * @param mode      模式
    * @return byte[]
    */
   private static byte[] aes(byte[] encrypted, byte[] aesKey, int mode) {

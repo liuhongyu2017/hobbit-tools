@@ -83,7 +83,7 @@ public class XmlUtil {
    * 转换路径
    *
    * @param expression 表达式
-   * @param item 实体
+   * @param item       实体
    * @param returnType 返回类型
    * @return Object
    */
@@ -150,7 +150,7 @@ public class XmlUtil {
   /**
    * 获取String
    *
-   * @param node 节点
+   * @param node       节点
    * @param expression 相对于node的路径
    * @return {String}
    */
@@ -161,7 +161,7 @@ public class XmlUtil {
   /**
    * 获取
    *
-   * @param node 节点
+   * @param node       节点
    * @param expression 相对于node的路径
    * @return {String}
    */
@@ -172,7 +172,7 @@ public class XmlUtil {
   /**
    * 获取
    *
-   * @param node 节点
+   * @param node       节点
    * @param expression 相对于node的路径
    * @return {Number}
    */
@@ -183,7 +183,7 @@ public class XmlUtil {
   /**
    * 获取某个节点
    *
-   * @param node 节点
+   * @param node       节点
    * @param expression 路径
    * @return {Node}
    */
@@ -194,7 +194,7 @@ public class XmlUtil {
   /**
    * 获取子节点
    *
-   * @param node 节点
+   * @param node       节点
    * @param expression 相对于node的路径
    * @return NodeList
    */

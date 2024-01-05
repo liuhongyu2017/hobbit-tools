@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lombok.Getter;
 import org.hobbit.core.tool.pool.StringPool;
 
 /**
@@ -18,14 +19,14 @@ import org.hobbit.core.tool.pool.StringPool;
  * This code is licensed LGPLv3
  * <p>
  * This code is a Java port of the original work in PHP by Cal Hendersen.
- * http://code.iamcal.com/php/lib_filter/
+ * <a href="http://code.iamcal.com/php/lib_filter/">...</a>
  * <p>
  * The trickiest part of the translation was handling the differences in regex handling between PHP
  * and Java. These resources were helpful in the process:
  * <p>
- * http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html
- * http://us2.php.net/manual/en/reference.pcre.pattern.modifiers.php
- * http://www.regular-expressions.info/modifiers.html
+ * <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html">...</a>
+ * <a href="http://us2.php.net/manual/en/reference.pcre.pattern.modifiers.php">...</a>
+ * <a href="http://www.regular-expressions.info/modifiers.html">...</a>
  * <p>
  * A note on naming conventions: instance variables are prefixed with a "v"; global constants are in
  * all caps.
@@ -36,13 +37,14 @@ import org.hobbit.core.tool.pool.StringPool;
  * <p>
  * If you find bugs or have suggestions on improvement (especially regarding performance), please
  * contact us. The latest version of this source, and our contact details, can be found at
- * http://xss-html-filter.sf.net
+ * <a href="http://xss-html-filter.sf.net">...</a>
  *
  * @author Joseph O'Connell
  * @author Cal Hendersen
  * @author Michael Semb Wever
  */
 public class XssHtmlFilter {
+
   /**
    * regex flag union representing /si modifiers in php
    **/
@@ -77,9 +79,9 @@ public class XssHtmlFilter {
 
 
   private static final ConcurrentMap<String, Pattern> P_REMOVE_PAIR_BLANKS =
-      new ConcurrentHashMap<String, Pattern>();
+      new ConcurrentHashMap<>();
   private static final ConcurrentMap<String, Pattern> P_REMOVE_SELF_BLANKS =
-      new ConcurrentHashMap<String, Pattern>();
+      new ConcurrentHashMap<>();
 
   /**
    * set of allowed html elements, along with allowed attributes for each element
@@ -88,7 +90,7 @@ public class XssHtmlFilter {
   /**
    * counts of open tags for each (allowable) html element
    **/
-  private final Map<String, Integer> vTagCounts = new HashMap<String, Integer>();
+  private final Map<String, Integer> vTagCounts = new HashMap<>();
 
   /**
    * html elements which must always be self-closing (e.g. "<img />")
@@ -129,6 +131,7 @@ public class XssHtmlFilter {
    * (e.g. "<b text </b>" becomes "<b> text </b>"). If set to false, unbalanced angle brackets will
    * be html escaped.
    */
+  @Getter
   private final boolean alwaysMakeTags;
 
   /**
@@ -137,31 +140,31 @@ public class XssHtmlFilter {
   public XssHtmlFilter() {
     vAllowed = new HashMap<>();
 
-    final ArrayList<String> aAtts = new ArrayList<String>();
+    final ArrayList<String> aAtts = new ArrayList<>();
     aAtts.add("href");
     aAtts.add("target");
     vAllowed.put("a", aAtts);
 
-    final ArrayList<String> imgAtts = new ArrayList<String>();
+    final ArrayList<String> imgAtts = new ArrayList<>();
     imgAtts.add("src");
     imgAtts.add("width");
     imgAtts.add("height");
     imgAtts.add("alt");
     vAllowed.put("img", imgAtts);
 
-    final ArrayList<String> noAtts = new ArrayList<String>();
+    final ArrayList<String> noAtts = new ArrayList<>();
     vAllowed.put("b", noAtts);
     vAllowed.put("strong", noAtts);
     vAllowed.put("i", noAtts);
     vAllowed.put("em", noAtts);
 
-    vSelfClosingTags = new String[] {"img"};
-    vNeedClosingTags = new String[] {"a", "b", "strong", "i", "em"};
-    vDisallowed = new String[] {};
-    vAllowedProtocols = new String[] {"http", "mailto", "https"};
-    vProtocolAtts = new String[] {"src", "href"};
-    vRemoveBlanks = new String[] {"a", "b", "strong", "i", "em"};
-    vAllowedEntities = new String[] {"amp", "gt", "lt", "quot"};
+    vSelfClosingTags = new String[]{"img"};
+    vNeedClosingTags = new String[]{"a", "b", "strong", "i", "em"};
+    vDisallowed = new String[]{};
+    vAllowedProtocols = new String[]{"http", "mailto", "https"};
+    vProtocolAtts = new String[]{"src", "href"};
+    vRemoveBlanks = new String[]{"a", "b", "strong", "i", "em"};
+    vAllowedEntities = new String[]{"amp", "gt", "lt", "quot"};
     stripComment = true;
     encodeQuotes = true;
     alwaysMakeTags = false;
@@ -266,17 +269,13 @@ public class XssHtmlFilter {
     return s;
   }
 
-  public boolean isAlwaysMakeTags() {
-    return alwaysMakeTags;
-  }
-
   public boolean isStripComments() {
     return stripComment;
   }
 
   private String escapeComments(final String s) {
     final Matcher m = P_COMMENTS.matcher(s);
-    final StringBuffer buf = new StringBuffer();
+    final StringBuilder buf = new StringBuilder();
     if (m.find()) {
       final String match = m.group(1);
       m.appendReplacement(buf, Matcher.quoteReplacement("<!--" + htmlSpecialChars(match) + "-->"));
@@ -316,7 +315,7 @@ public class XssHtmlFilter {
   private String checkTags(String s) {
     Matcher m = P_TAGS.matcher(s);
 
-    final StringBuffer buf = new StringBuffer();
+    final StringBuilder buf = new StringBuilder();
     while (m.find()) {
       String replaceStr = m.group(1);
       replaceStr = processTag(replaceStr);
@@ -324,15 +323,15 @@ public class XssHtmlFilter {
     }
     m.appendTail(buf);
 
-    s = buf.toString();
-
     // these get tallied in processTag
     // (remember to reset before subsequent calls to filter method)
+    StringBuilder sBuilder = new StringBuilder(buf.toString());
     for (String key : vTagCounts.keySet()) {
       for (int ii = 0; ii < vTagCounts.get(key); ii++) {
-        s += "</" + key + ">";
+        sBuilder.append("</").append(key).append(">");
       }
     }
+    s = sBuilder.toString();
 
     return s;
   }
@@ -379,11 +378,11 @@ public class XssHtmlFilter {
       final String body = m.group(2);
       String ending = m.group(3);
       if (allowed(name)) {
-        String params = "";
+        StringBuilder params = new StringBuilder();
         final Matcher m2 = P_QUOTED_ATTRIBUTES.matcher(body);
         final Matcher m3 = P_UNQUOTED_ATTRIBUTES.matcher(body);
-        final List<String> paramNames = new ArrayList<String>();
-        final List<String> paramValues = new ArrayList<String>();
+        final List<String> paramNames = new ArrayList<>();
+        final List<String> paramValues = new ArrayList<>();
         while (m2.find()) {
           paramNames.add(m2.group(1));
           paramValues.add(m2.group(3));
@@ -400,7 +399,7 @@ public class XssHtmlFilter {
             if (inArray(paramName, vProtocolAtts)) {
               paramValue = processParamProtocol(paramValue);
             }
-            params += " " + paramName + "=\"" + paramValue + "\"";
+            params.append(" ").append(paramName).append("=\"").append(paramValue).append("\"");
           }
         }
         if (inArray(name, vSelfClosingTags)) {
@@ -409,7 +408,7 @@ public class XssHtmlFilter {
         if (inArray(name, vNeedClosingTags)) {
           ending = "";
         }
-        if (ending == null || ending.length() < 1) {
+        if (ending == null || ending.isEmpty()) {
           if (vTagCounts.containsKey(name)) {
             vTagCounts.put(name, vTagCounts.get(name) + 1);
           } else {
@@ -448,7 +447,7 @@ public class XssHtmlFilter {
   }
 
   private String decodeEntities(String s) {
-    StringBuffer buf = new StringBuffer();
+    StringBuilder buf = new StringBuilder();
 
     Matcher m = P_ENTITY.matcher(s);
     while (m.find()) {
@@ -459,21 +458,21 @@ public class XssHtmlFilter {
     m.appendTail(buf);
     s = buf.toString();
 
-    buf = new StringBuffer();
+    buf = new StringBuilder();
     m = P_ENTITY_UNICODE.matcher(s);
     while (m.find()) {
       final String match = m.group(1);
-      final int decimal = Integer.valueOf(match, 16).intValue();
+      final int decimal = Integer.valueOf(match, 16);
       m.appendReplacement(buf, Matcher.quoteReplacement(chr(decimal)));
     }
     m.appendTail(buf);
     s = buf.toString();
 
-    buf = new StringBuffer();
+    buf = new StringBuilder();
     m = P_ENCODE.matcher(s);
     while (m.find()) {
       final String match = m.group(1);
-      final int decimal = Integer.valueOf(match, 16).intValue();
+      final int decimal = Integer.valueOf(match, 16);
       m.appendReplacement(buf, Matcher.quoteReplacement(chr(decimal)));
     }
     m.appendTail(buf);
@@ -484,7 +483,7 @@ public class XssHtmlFilter {
   }
 
   private String validateEntities(final String s) {
-    StringBuffer buf = new StringBuffer();
+    StringBuilder buf = new StringBuilder();
 
     // validate entities throughout the string
     Matcher m = P_VALID_ENTITIES.matcher(s);
@@ -500,7 +499,7 @@ public class XssHtmlFilter {
 
   private String encodeQuotes(final String s) {
     if (encodeQuotes) {
-      StringBuffer buf = new StringBuffer();
+      StringBuilder buf = new StringBuilder();
       Matcher m = P_VALID_QUOTES.matcher(s);
       while (m.find()) {
         final String one = m.group(1);

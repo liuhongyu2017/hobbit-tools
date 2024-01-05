@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.ServiceLoader;
 import java.util.function.Function;
@@ -82,7 +83,8 @@ public class HobbitApplication {
       throw new RuntimeException(
           "同时存在环境变量:[" + StringUtils.arrayToCommaDelimitedString(activeProfiles) + "]");
     }
-    String startJarPath = HobbitApplication.class.getResource("/").getPath().split("!")[0];
+    String startJarPath = Objects.requireNonNull(HobbitApplication.class.getResource("/")).getPath()
+        .split("!")[0];
     String activePros = joinFun.apply(activeProfileList.toArray());
     System.out.printf("----启动中，读取到的环境变量:[%s]，jar地址:[%s]----%n", activePros,
         startJarPath);

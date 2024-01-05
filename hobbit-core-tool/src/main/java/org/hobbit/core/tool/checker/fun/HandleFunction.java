@@ -13,7 +13,7 @@ import org.hobbit.core.tool.checker.Condition;
 public interface HandleFunction extends Serializable {
 
   /**
-   * @param target 目标对象
+   * @param target    目标对象
    * @param condition 条件
    * @return 是否通过
    */

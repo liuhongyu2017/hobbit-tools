@@ -13,9 +13,9 @@ public class HexUtil {
 
   public static final Charset DEFAULT_CHARSET = Charsets.UTF_8;
   private static final byte[] DIGITS_LOWER =
-      new byte[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+      new byte[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
   private static final byte[] DIGITS_UPPER =
-      new byte[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+      new byte[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
   /**
    * encode Hex
@@ -30,7 +30,7 @@ public class HexUtil {
   /**
    * encode Hex
    *
-   * @param data data to hex
+   * @param data        data to hex
    * @param toLowerCase 是否小写
    * @return hex bytes
    */
@@ -57,7 +57,7 @@ public class HexUtil {
   /**
    * encode Hex
    *
-   * @param data Data to Hex
+   * @param data        Data to Hex
    * @param toLowerCase 是否小写
    * @return bytes as a hex string
    */

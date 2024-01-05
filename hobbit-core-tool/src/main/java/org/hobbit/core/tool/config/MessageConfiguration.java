@@ -1,7 +1,9 @@
 package org.hobbit.core.tool.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.hobbit.core.tool.jackson.HobbitJacksonProperties;
 import org.hobbit.core.tool.jackson.MappingApiJackson2HttpMessageConverter;
 import org.hobbit.core.tool.utils.DateUtil;
@@ -17,12 +19,10 @@ import org.springframework.http.converter.ResourceRegionHttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 
 /**
  * 消息配置类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */

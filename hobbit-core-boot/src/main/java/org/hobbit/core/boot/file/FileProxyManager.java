@@ -1,13 +1,17 @@
 package org.hobbit.core.boot.file;
 
 import java.io.File;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 文件管理类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
+@Setter
+@Getter
 public class FileProxyManager {
 
   private IFileProxy defaultFileProxyFactory = new LocalFileProxyFactory();
@@ -16,14 +20,6 @@ public class FileProxyManager {
 
   public static FileProxyManager me() {
     return ME;
-  }
-
-  public IFileProxy getDefaultFileProxyFactory() {
-    return defaultFileProxyFactory;
-  }
-
-  public void setDefaultFileProxyFactory(IFileProxy defaultFileProxyFactory) {
-    this.defaultFileProxyFactory = defaultFileProxyFactory;
   }
 
   public String[] path(File file, String dir) {

@@ -3,13 +3,13 @@ package org.hobbit.core.context.props;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.EnvironmentCapable;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
-import lombok.Getter;
 
 /**
  * 配置文件
@@ -43,7 +43,7 @@ public class HobbitProperties implements EnvironmentAware, EnvironmentCapable {
   /**
    * 获取配置
    *
-   * @param key key
+   * @param key          key
    * @param defaultValue 默认值
    * @return value
    */
@@ -70,7 +70,7 @@ public class HobbitProperties implements EnvironmentAware, EnvironmentCapable {
   /**
    * 获取配置
    *
-   * @param key key
+   * @param key          key
    * @param defaultValue 默认值
    * @return int value
    */
@@ -97,7 +97,7 @@ public class HobbitProperties implements EnvironmentAware, EnvironmentCapable {
   /**
    * 获取配置
    *
-   * @param key key
+   * @param key          key
    * @param defaultValue 默认值
    * @return long value
    */
@@ -124,7 +124,7 @@ public class HobbitProperties implements EnvironmentAware, EnvironmentCapable {
   /**
    * 获取配置
    *
-   * @param key key
+   * @param key          key
    * @param defaultValue 默认值
    * @return Boolean value
    */
@@ -152,7 +152,7 @@ public class HobbitProperties implements EnvironmentAware, EnvironmentCapable {
   /**
    * 获取配置
    *
-   * @param key key
+   * @param key          key
    * @param defaultValue 默认值
    * @return double value
    */

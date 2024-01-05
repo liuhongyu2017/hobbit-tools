@@ -1,26 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.hobbit</groupId>
-		<artifactId>hobbit-tools</artifactId>
-		<version>3.1.4-SNAPSHOTS</version>
-	</parent>
+  <parent>
+    <groupId>org.hobbit</groupId>
+    <artifactId>hobbit-tools</artifactId>
+    <version>3.1.4-SNAPSHOTS</version>
+  </parent>
 
-	<artifactId>hobbit-core-launch</artifactId>
-	<packaging>jar</packaging>
+  <artifactId>hobbit-core-launch</artifactId>
+  <packaging>jar</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>net.dreamlu</groupId>
-			<artifactId>mica-auto</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hobbit</groupId>
-			<artifactId>hobbit-core-tool</artifactId>
-			<version>3.1.4-SNAPSHOTS</version>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>net.dreamlu</groupId>
+      <artifactId>mica-auto</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hobbit</groupId>
+      <artifactId>hobbit-core-tool</artifactId>
+      <version>3.1.4-SNAPSHOTS</version>
+    </dependency>
+  </dependencies>
 </project>

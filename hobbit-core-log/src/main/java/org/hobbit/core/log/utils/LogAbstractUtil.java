@@ -1,5 +1,6 @@
 package org.hobbit.core.log.utils;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hobbit.core.context.props.HobbitProperties;
 import org.hobbit.core.log.model.LogAbstract;
 import org.hobbit.core.tool.pool.StringPool;
@@ -8,7 +9,6 @@ import org.hobbit.core.tool.utils.INetUtil;
 import org.hobbit.core.tool.utils.ObjectUtil;
 import org.hobbit.core.tool.utils.UrlUtil;
 import org.hobbit.core.tool.utils.WebUtil;
-import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Log 相关工具
@@ -21,7 +21,7 @@ public class LogAbstractUtil {
   /**
    * 向log中添加补齐request的信息
    *
-   * @param request 请求
+   * @param request     请求
    * @param logAbstract 日志基础类
    */
   public static void addRequestInfoToLog(HttpServletRequest request, LogAbstract logAbstract) {

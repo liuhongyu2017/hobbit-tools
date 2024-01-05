@@ -58,7 +58,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 扫描目录下的文件
    *
-   * @param path 路径
+   * @param path            路径
    * @param fileNamePattern 文件名 * 号
    * @return 文件集合
    */
@@ -73,7 +73,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 扫描目录下的文件
    *
-   * @param path 路径
+   * @param path   路径
    * @param filter 文件过滤
    * @return 文件集合
    */
@@ -96,7 +96,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 扫描目录下的文件
    *
-   * @param file 文件
+   * @param file            文件
    * @param fileNamePattern Spring AntPathMatcher 规则
    * @return 文件集合
    */
@@ -111,7 +111,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 扫描目录下的文件
    *
-   * @param file 文件
+   * @param file   文件
    * @param filter 文件过滤
    * @return 文件集合
    */
@@ -123,7 +123,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 扫描目录下的文件
    *
-   * @param file 文件
+   * @param file   文件
    * @param filter 文件过滤
    * @return 文件集合
    */
@@ -206,7 +206,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * Reads the contents of a file into a String. The file is always closed.
    *
-   * @param file the file to read, must not be {@code null}
+   * @param file     the file to read, must not be {@code null}
    * @param encoding the encoding to use, {@code null} means platform default
    * @return the file contents, never {@code null}
    */
@@ -245,10 +245,10 @@ public class FileUtil extends FileCopyUtils {
   /**
    * Writes a String to a file creating the file if it does not exist.
    *
-   * @param file the file to write
-   * @param data the content to write to the file
+   * @param file   the file to write
+   * @param data   the content to write to the file
    * @param append if {@code true}, then the String will be added to the end of the file rather than
-   *        overwriting
+   *               overwriting
    */
   public static void writeToFile(final File file, final String data, final boolean append) {
     writeToFile(file, data, Charsets.UTF_8, append);
@@ -257,8 +257,8 @@ public class FileUtil extends FileCopyUtils {
   /**
    * Writes a String to a file creating the file if it does not exist.
    *
-   * @param file the file to write
-   * @param data the content to write to the file
+   * @param file     the file to write
+   * @param data     the content to write to the file
    * @param encoding the encoding to use, {@code null} means platform default
    */
   public static void writeToFile(final File file, final String data, final Charset encoding) {
@@ -268,11 +268,11 @@ public class FileUtil extends FileCopyUtils {
   /**
    * Writes a String to a file creating the file if it does not exist.
    *
-   * @param file the file to write
-   * @param data the content to write to the file
+   * @param file     the file to write
+   * @param data     the content to write to the file
    * @param encoding the encoding to use, {@code null} means platform default
-   * @param append if {@code true}, then the String will be added to the end of the file rather than
-   *        overwriting
+   * @param append   if {@code true}, then the String will be added to the end of the file rather
+   *                 than overwriting
    */
   public static void writeToFile(final File file, final String data, final Charset encoding,
       final boolean append) {
@@ -287,7 +287,7 @@ public class FileUtil extends FileCopyUtils {
    * 转成file
    *
    * @param multipartFile MultipartFile
-   * @param file File
+   * @param file          File
    */
   public static void toFile(MultipartFile multipartFile, final File file) {
     try {
@@ -300,7 +300,7 @@ public class FileUtil extends FileCopyUtils {
   /**
    * 转成file
    *
-   * @param in InputStream
+   * @param in   InputStream
    * @param file File
    */
   public static void toFile(InputStream in, final File file) {
@@ -316,11 +316,11 @@ public class FileUtil extends FileCopyUtils {
    * <p>
    * When the destination file is on another file system, do a "copy and delete".
    *
-   * @param srcFile the file to be moved
+   * @param srcFile  the file to be moved
    * @param destFile the destination file
    * @throws NullPointerException if source or destination is {@code null}
-   * @throws IOException if source or destination is invalid
-   * @throws IOException if an IO error occurs moving the file
+   * @throws IOException          if source or destination is invalid
+   * @throws IOException          if an IO error occurs moving the file
    */
   public static void moveFile(final File srcFile, final File destFile) throws IOException {
     Assert.notNull(srcFile, "Source must not be null");

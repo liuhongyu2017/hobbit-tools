@@ -1,10 +1,10 @@
 package org.hobbit.core.tool.support;
 
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Arrays;
 import org.hobbit.core.tool.pool.StringPool;
-import jakarta.annotation.Nonnull;
 
 /**
  * FastStringWriter，更改于 jdk CharArrayWriter

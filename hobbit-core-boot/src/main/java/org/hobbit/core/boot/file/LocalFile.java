@@ -1,20 +1,23 @@
 package org.hobbit.core.boot.file;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.context.props.HobbitFileProperties;
 import org.hobbit.core.tool.utils.DateUtil;
 import org.hobbit.core.tool.utils.SpringUtil;
 import org.springframework.web.multipart.MultipartFile;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 
 /**
  * 上传文件封装
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
+@Slf4j
 @Data
 public class LocalFile {
 
@@ -115,7 +118,7 @@ public class LocalFile {
    * 图片上传
    *
    * @param fileFactory 文件上传工厂类
-   * @param compress 是否压缩
+   * @param compress    是否压缩
    */
   public void transfer(IFileProxy fileFactory, boolean compress) {
     try {
@@ -136,11 +139,11 @@ public class LocalFile {
       this.file.transferTo(file);
 
       if (compress) {
-        fileFactory.compress(this.uploadPath);
+        Objects.requireNonNull(fileFactory).compress(this.uploadPath);
       }
 
     } catch (IllegalStateException | IOException e) {
-      e.printStackTrace();
+      log.error(e.getMessage(), e);
     }
   }
 }

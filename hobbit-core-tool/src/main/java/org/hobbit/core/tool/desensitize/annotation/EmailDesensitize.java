@@ -1,12 +1,12 @@
 package org.hobbit.core.tool.desensitize.annotation;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.hobbit.core.tool.desensitize.desensitization.EmailDesensitization;
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 
 /**
  * 邮箱脱敏

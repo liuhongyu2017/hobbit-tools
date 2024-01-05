@@ -50,7 +50,7 @@ public class NumberUtil extends NumberUtils {
    *   NumberUtil.toInt("1", 0)  = 1
    * </pre>
    *
-   * @param str the string to convert, may be null
+   * @param str          the string to convert, may be null
    * @param defaultValue the default value
    * @return the int represented by the string, or the default if conversion fails
    */
@@ -104,7 +104,7 @@ public class NumberUtil extends NumberUtils {
    *   NumberUtil.toLong("1", 0L)  = 1L
    * </pre>
    *
-   * @param str the string to convert, may be null
+   * @param str          the string to convert, may be null
    * @param defaultValue the default value
    * @return the long represented by the string, or the default if conversion fails
    */
@@ -134,7 +134,7 @@ public class NumberUtil extends NumberUtils {
    * <p>
    * Convert a <code>String</code> to a <code>Double</code>
    *
-   * @param value value
+   * @param value        value
    * @param defaultValue 默认值
    * @return double value
    */
@@ -160,7 +160,7 @@ public class NumberUtil extends NumberUtils {
    * <p>
    * Convert a <code>String</code> to a <code>Double</code>
    *
-   * @param value value
+   * @param value        value
    * @param defaultValue 默认值
    * @return double value
    */

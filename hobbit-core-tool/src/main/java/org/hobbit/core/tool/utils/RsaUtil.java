@@ -65,7 +65,7 @@ public class RsaUtil {
   /**
    * 生成RSA私钥
    *
-   * @param modulus N特征值
+   * @param modulus  N特征值
    * @param exponent d特征值
    * @return {@link PrivateKey}
    */
@@ -76,7 +76,7 @@ public class RsaUtil {
   /**
    * 生成RSA私钥
    *
-   * @param modulus N特征值
+   * @param modulus  N特征值
    * @param exponent d特征值
    * @return {@link PrivateKey}
    */
@@ -93,7 +93,7 @@ public class RsaUtil {
   /**
    * 生成RSA公钥
    *
-   * @param modulus N特征值
+   * @param modulus  N特征值
    * @param exponent e特征值
    * @return {@link PublicKey}
    */
@@ -104,7 +104,7 @@ public class RsaUtil {
   /**
    * 生成RSA公钥
    *
-   * @param modulus N特征值
+   * @param modulus  N特征值
    * @param exponent e特征值
    * @return {@link PublicKey}
    */
@@ -190,7 +190,7 @@ public class RsaUtil {
    * 共要加密
    *
    * @param base64PublicKey base64 的公钥
-   * @param data 待加密的内容
+   * @param data            待加密的内容
    * @return 加密后的内容
    */
   public static byte[] encrypt(String base64PublicKey, byte[] data) {
@@ -201,7 +201,7 @@ public class RsaUtil {
    * 共要加密
    *
    * @param publicKey 公钥
-   * @param data 待加密的内容
+   * @param data      待加密的内容
    * @return 加密后的内容
    */
   public static byte[] encrypt(PublicKey publicKey, byte[] data) {
@@ -212,7 +212,7 @@ public class RsaUtil {
    * 私钥加密，用于 qpp 内，公钥解密
    *
    * @param base64PrivateKey base64 的私钥
-   * @param data 待加密的内容
+   * @param data             待加密的内容
    * @return 加密后的内容
    */
   public static byte[] encryptByPrivateKey(String base64PrivateKey, byte[] data) {
@@ -223,7 +223,7 @@ public class RsaUtil {
    * 私钥加密，加密成 base64 字符串，用于 qpp 内，公钥解密
    *
    * @param base64PrivateKey base64 的私钥
-   * @param data 待加密的内容
+   * @param data             待加密的内容
    * @return 加密后的内容
    */
   public static String encryptByPrivateKeyToBase64(String base64PrivateKey, byte[] data) {
@@ -234,7 +234,7 @@ public class RsaUtil {
    * 私钥加密，用于 qpp 内，公钥解密
    *
    * @param privateKey 私钥
-   * @param data 待加密的内容
+   * @param data       待加密的内容
    * @return 加密后的内容
    */
   public static byte[] encryptByPrivateKey(PrivateKey privateKey, byte[] data) {
@@ -245,7 +245,7 @@ public class RsaUtil {
    * 公钥加密
    *
    * @param base64PublicKey base64 公钥
-   * @param data 待加密的内容
+   * @param data            待加密的内容
    * @return 加密后的内容
    */
   @Nullable
@@ -260,7 +260,7 @@ public class RsaUtil {
    * 解密
    *
    * @param base64PrivateKey base64 私钥
-   * @param data 数据
+   * @param data             数据
    * @return 解密后的数据
    */
   public static byte[] decrypt(String base64PrivateKey, byte[] data) {
@@ -271,7 +271,7 @@ public class RsaUtil {
    * 解密
    *
    * @param base64publicKey base64 公钥
-   * @param data 数据
+   * @param data            数据
    * @return 解密后的数据
    */
   public static byte[] decryptByPublicKey(String base64publicKey, byte[] data) {
@@ -282,7 +282,7 @@ public class RsaUtil {
    * 解密
    *
    * @param privateKey privateKey
-   * @param data 数据
+   * @param data       数据
    * @return 解密后的数据
    */
   public static byte[] decrypt(PrivateKey privateKey, byte[] data) {
@@ -293,7 +293,7 @@ public class RsaUtil {
    * 解密
    *
    * @param publicKey PublicKey
-   * @param data 数据
+   * @param data      数据
    * @return 解密后的数据
    */
   public static byte[] decryptByPublicKey(PublicKey publicKey, byte[] data) {
@@ -303,7 +303,7 @@ public class RsaUtil {
   /**
    * rsa 加、解密
    *
-   * @param key key
+   * @param key  key
    * @param data 数据
    * @param mode 模式
    * @return 解密后的数据
@@ -322,7 +322,7 @@ public class RsaUtil {
    * base64 数据解密
    *
    * @param base64PublicKey base64 公钥
-   * @param base64Data base64数据
+   * @param base64Data      base64数据
    * @return 解密后的数据
    */
   public static byte[] decryptByPublicKeyFromBase64(String base64PublicKey, byte[] base64Data) {
@@ -333,7 +333,7 @@ public class RsaUtil {
    * base64 数据解密
    *
    * @param base64PrivateKey base64 私钥
-   * @param base64Data base64数据
+   * @param base64Data       base64数据
    * @return 解密后的数据
    */
   @Nullable
@@ -349,7 +349,7 @@ public class RsaUtil {
    * base64 数据解密
    *
    * @param base64PrivateKey base64 私钥
-   * @param base64Data base64数据
+   * @param base64Data       base64数据
    * @return 解密后的数据
    */
   public static byte[] decryptFromBase64(String base64PrivateKey, byte[] base64Data) {
@@ -360,7 +360,7 @@ public class RsaUtil {
    * base64 数据解密
    *
    * @param base64PublicKey base64 公钥
-   * @param base64Data base64数据
+   * @param base64Data      base64数据
    * @return 解密后的数据
    */
   @Nullable

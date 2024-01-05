@@ -1,21 +1,5 @@
 package org.hobbit.core.tool.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serial;
-import java.text.SimpleDateFormat;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
-import java.util.TimeZone;
-import org.hobbit.core.tool.jackson.HobbitJavaTimeModule;
-import org.hobbit.core.tool.pool.StringPool;
-import org.springframework.lang.Nullable;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.TreeNode;
@@ -29,7 +13,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.type.CollectionLikeType;
 import com.fasterxml.jackson.databind.type.MapType;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serial;
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TimeZone;
 import lombok.extern.slf4j.Slf4j;
+import org.hobbit.core.tool.jackson.HobbitJavaTimeModule;
+import org.hobbit.core.tool.pool.StringPool;
+import org.springframework.lang.Nullable;
 
 /**
  * jackson 工具类
@@ -72,9 +72,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param content content
+   * @param content   content
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   public static <T> T parse(String content, Class<T> valueType) {
@@ -89,9 +89,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param content content
+   * @param content       content
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T parse(String content, TypeReference<T> typeReference) {
@@ -105,9 +105,9 @@ public class JsonUtil {
   /**
    * 将json byte 数组反序列化成对象
    *
-   * @param bytes json bytes
+   * @param bytes     json bytes
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   public static <T> T parse(byte[] bytes, Class<T> valueType) {
@@ -122,9 +122,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param bytes bytes
+   * @param bytes         bytes
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T parse(byte[] bytes, TypeReference<T> typeReference) {
@@ -138,9 +138,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in        InputStream
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   public static <T> T parse(InputStream in, Class<T> valueType) {
@@ -154,9 +154,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in            InputStream
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   public static <T> T parse(InputStream in, TypeReference<T> typeReference) {
@@ -170,9 +170,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成List对象
    *
-   * @param content content
+   * @param content      content
    * @param valueTypeRef class
-   * @param <T> T 泛型标记
+   * @param <T>          T 泛型标记
    * @return List<T>
    */
   public static <T> List<T> parseArray(String content, Class<T> valueTypeRef) {
@@ -182,7 +182,8 @@ public class JsonUtil {
         content = StringPool.LEFT_SQ_BRACKET + content + StringPool.RIGHT_SQ_BRACKET;
       }
 
-      List<Map<String, Object>> list = getInstance().readValue(content, new TypeReference<>() {});
+      List<Map<String, Object>> list = getInstance().readValue(content, new TypeReference<>() {
+      });
 
       List<T> result = new ArrayList<>();
       for (Map<String, Object> map : list) {
@@ -259,9 +260,9 @@ public class JsonUtil {
   /**
    * 将json byte 数组反序列化成对象
    *
-   * @param content json bytes
+   * @param content   json bytes
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -280,8 +281,8 @@ public class JsonUtil {
    * 将json反序列化成对象
    *
    * @param jsonString jsonString
-   * @param valueType class
-   * @param <T> T 泛型标记
+   * @param valueType  class
+   * @param <T>        T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -299,9 +300,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in        InputStream
    * @param valueType class
-   * @param <T> T 泛型标记
+   * @param <T>       T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -319,9 +320,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param content bytes
+   * @param content       bytes
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -339,9 +340,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param jsonString jsonString
+   * @param jsonString    jsonString
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -359,9 +360,9 @@ public class JsonUtil {
   /**
    * 将json反序列化成对象
    *
-   * @param in InputStream
+   * @param in            InputStream
    * @param typeReference 泛型类型
-   * @param <T> T 泛型标记
+   * @param <T>           T 泛型标记
    * @return Bean
    */
   @Nullable
@@ -379,7 +380,7 @@ public class JsonUtil {
   /**
    * 封装 map type
    *
-   * @param keyClass key 类型
+   * @param keyClass   key 类型
    * @param valueClass value 类型
    * @return MapType
    */
@@ -400,9 +401,9 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content bytes
+   * @param content      bytes
    * @param elementClass elementClass
-   * @param <T> 泛型
+   * @param <T>          泛型
    * @return 集合
    */
   public static <T> List<T> readList(@Nullable byte[] content, Class<T> elementClass) {
@@ -419,9 +420,9 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content InputStream
+   * @param content      InputStream
    * @param elementClass elementClass
-   * @param <T> 泛型
+   * @param <T>          泛型
    * @return 集合
    */
   public static <T> List<T> readList(@Nullable InputStream content, Class<T> elementClass) {
@@ -438,9 +439,9 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content bytes
+   * @param content      bytes
    * @param elementClass elementClass
-   * @param <T> 泛型
+   * @param <T>          泛型
    * @return 集合
    */
   public static <T> List<T> readList(@Nullable String content, Class<T> elementClass) {
@@ -457,11 +458,11 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content bytes
-   * @param keyClass key类型
+   * @param content    bytes
+   * @param keyClass   key类型
    * @param valueClass 值类型
-   * @param <K> 泛型
-   * @param <V> 泛型
+   * @param <K>        泛型
+   * @param <V>        泛型
    * @return 集合
    */
   public static <K, V> Map<K, V> readMap(@Nullable byte[] content, Class<?> keyClass,
@@ -479,11 +480,11 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content InputStream
-   * @param keyClass key类型
+   * @param content    InputStream
+   * @param keyClass   key类型
    * @param valueClass 值类型
-   * @param <K> 泛型
-   * @param <V> 泛型
+   * @param <K>        泛型
+   * @param <V>        泛型
    * @return 集合
    */
   public static <K, V> Map<K, V> readMap(@Nullable InputStream content, Class<?> keyClass,
@@ -501,11 +502,11 @@ public class JsonUtil {
   /**
    * 读取集合
    *
-   * @param content bytes
-   * @param keyClass key类型
+   * @param content    bytes
+   * @param keyClass   key类型
    * @param valueClass 值类型
-   * @param <K> 泛型
-   * @param <V> 泛型
+   * @param <K>        泛型
+   * @param <V>        泛型
    * @return 集合
    */
   public static <K, V> Map<K, V> readMap(@Nullable String content, Class<?> keyClass,
@@ -541,7 +542,8 @@ public class JsonUtil {
       return Collections.emptyList();
     }
     try {
-      return getInstance().readValue(content, new TypeReference<>() {});
+      return getInstance().readValue(content, new TypeReference<>() {
+      });
     } catch (IOException e) {
       throw Exceptions.unchecked(e);
     }
@@ -550,9 +552,9 @@ public class JsonUtil {
   /**
    * jackson 的类型转换
    *
-   * @param fromValue 来源对象
+   * @param fromValue   来源对象
    * @param toValueType 转换的类型
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return 转换结果
    */
   public static <T> T convertValue(Object fromValue, Class<T> toValueType) {
@@ -562,9 +564,9 @@ public class JsonUtil {
   /**
    * jackson 的类型转换
    *
-   * @param fromValue 来源对象
+   * @param fromValue   来源对象
    * @param toValueType 转换的类型
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return 转换结果
    */
   public static <T> T convertValue(Object fromValue, JavaType toValueType) {
@@ -574,9 +576,9 @@ public class JsonUtil {
   /**
    * jackson 的类型转换
    *
-   * @param fromValue 来源对象
+   * @param fromValue      来源对象
    * @param toValueTypeRef 泛型类型
-   * @param <T> 泛型标记
+   * @param <T>            泛型标记
    * @return 转换结果
    */
   public static <T> T convertValue(Object fromValue, TypeReference<T> toValueTypeRef) {
@@ -586,9 +588,9 @@ public class JsonUtil {
   /**
    * tree 转对象
    *
-   * @param treeNode TreeNode
+   * @param treeNode  TreeNode
    * @param valueType valueType
-   * @param <T> 泛型标记
+   * @param <T>       泛型标记
    * @return 转换结果
    */
   public static <T> T treeToValue(TreeNode treeNode, Class<T> valueType) {
@@ -635,7 +637,8 @@ public class JsonUtil {
   public static <T> Map<String, T> toMap(String content, Class<T> valueTypeRef) {
     try {
       Map<String, Map<String, Object>> map =
-          getInstance().readValue(content, new TypeReference<>() {});
+          getInstance().readValue(content, new TypeReference<>() {
+          });
       Map<String, T> result = new HashMap<>(16);
       for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
         result.put(entry.getKey(), toPojo(entry.getValue(), valueTypeRef));

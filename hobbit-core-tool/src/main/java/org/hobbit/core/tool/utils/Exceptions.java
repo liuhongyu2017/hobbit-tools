@@ -39,7 +39,7 @@ public class Exceptions {
    * 不采用 RuntimeException 包装，直接抛出，使异常更加精准
    *
    * @param throwable Throwable
-   * @param <T> 泛型标记
+   * @param <T>       泛型标记
    * @return Throwable
    * @throws T 泛型
    */

@@ -66,7 +66,8 @@ public class ConditionHandler {
 
   private static void throwBizError(Condition condition) {
     String msg =
-        StringUtil.hasLength(condition.getDesc()) ? String.format("字段(%s)值错误", condition.getField())
+        StringUtil.hasLength(condition.getDesc()) ? String.format("字段(%s)值错误",
+            condition.getField())
             : condition.getDesc();
     throwMsg(msg);
   }

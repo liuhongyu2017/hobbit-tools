@@ -36,7 +36,7 @@ public class UrlUtil extends UriUtils {
   /**
    * url 编码
    *
-   * @param source url
+   * @param source  url
    * @param charset 字符集
    * @return 编码后的url
    */
@@ -47,7 +47,7 @@ public class UrlUtil extends UriUtils {
   /**
    * url 解码
    *
-   * @param source url
+   * @param source  url
    * @param charset 字符集
    * @return 解码url
    */

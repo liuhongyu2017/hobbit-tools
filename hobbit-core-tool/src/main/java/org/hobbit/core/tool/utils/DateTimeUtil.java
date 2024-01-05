@@ -62,7 +62,7 @@ public class DateTimeUtil {
    * 日期格式化
    *
    * @param temporal 时间
-   * @param pattern 表达式
+   * @param pattern  表达式
    * @return 格式化后的时间
    */
   public static String format(TemporalAccessor temporal, String pattern) {
@@ -84,7 +84,7 @@ public class DateTimeUtil {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -117,7 +117,7 @@ public class DateTimeUtil {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -150,7 +150,7 @@ public class DateTimeUtil {
   /**
    * 将字符串转换为时间
    *
-   * @param dateStr 时间字符串
+   * @param dateStr   时间字符串
    * @param formatter DateTimeFormatter
    * @return 时间
    */
@@ -202,7 +202,7 @@ public class DateTimeUtil {
    * 比较2个时间差，跨度比较小
    *
    * @param startInclusive 开始时间
-   * @param endExclusive 结束时间
+   * @param endExclusive   结束时间
    * @return 时间间隔
    */
   public static Duration between(Temporal startInclusive, Temporal endExclusive) {
@@ -213,7 +213,7 @@ public class DateTimeUtil {
    * 比较2个时间差，跨度比较大，年月日为单位
    *
    * @param startDate 开始时间
-   * @param endDate 结束时间
+   * @param endDate   结束时间
    * @return 时间间隔
    */
   public static Period between(LocalDate startDate, LocalDate endDate) {

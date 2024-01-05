@@ -18,7 +18,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * yml 配置加载
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */
@@ -27,9 +27,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
   @Override
   public PropertySource<?> createPropertySource(@Nullable String name,
       EncodedResource encodedResource) throws IOException {
-    if (encodedResource == null) {
-      return emptyPropertySource(name);
-    }
     Resource resource = encodedResource.getResource();
     String fileName = resource.getFilename();
     List<PropertySource<?>> sources = new YamlPropertySourceLoader().load(fileName, resource);

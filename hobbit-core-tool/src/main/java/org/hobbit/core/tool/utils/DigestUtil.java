@@ -145,7 +145,7 @@ public class DigestUtil extends DigestUtils {
    * digest Hex
    *
    * @param algorithm 算法
-   * @param bytes Data to digest
+   * @param bytes     Data to digest
    * @return digest as a hex string
    */
   public static String digestHex(String algorithm, byte[] bytes) {
@@ -161,7 +161,7 @@ public class DigestUtil extends DigestUtils {
    * hmacMd5 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacMd5Hex(String data, String key) {
@@ -172,7 +172,7 @@ public class DigestUtil extends DigestUtils {
    * hmacMd5 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacMd5Hex(final byte[] bytes, String key) {
@@ -183,7 +183,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha1 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha1Hex(String data, String key) {
@@ -194,7 +194,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha1 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha1Hex(final byte[] bytes, String key) {
@@ -205,7 +205,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha224 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha224Hex(String data, String key) {
@@ -216,7 +216,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha224 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha224Hex(final byte[] bytes, String key) {
@@ -227,7 +227,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha256
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static byte[] hmacSha256(String data, String key) {
@@ -238,7 +238,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha256
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a byte array
    */
   public static byte[] hmacSha256(final byte[] bytes, String key) {
@@ -249,7 +249,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha256 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha256Hex(String data, String key) {
@@ -260,7 +260,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha256 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha256Hex(final byte[] bytes, String key) {
@@ -271,7 +271,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha384 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha384Hex(String data, String key) {
@@ -282,7 +282,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha384 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha384Hex(final byte[] bytes, String key) {
@@ -293,7 +293,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha512 Hex
    *
    * @param data Data to digest
-   * @param key key
+   * @param key  key
    * @return digest as a hex string
    */
   public static String hmacSha512Hex(String data, String key) {
@@ -304,7 +304,7 @@ public class DigestUtil extends DigestUtils {
    * hmacSha512 Hex
    *
    * @param bytes Data to digest
-   * @param key key
+   * @param key   key
    * @return digest as a hex string
    */
   public static String hmacSha512Hex(final byte[] bytes, String key) {
@@ -315,7 +315,7 @@ public class DigestUtil extends DigestUtils {
    * digest HMac Hex
    *
    * @param algorithm 算法
-   * @param bytes Data to digest
+   * @param bytes     Data to digest
    * @return digest as a hex string
    */
   public static String digestHMacHex(String algorithm, final byte[] bytes, String key) {
@@ -333,7 +333,7 @@ public class DigestUtil extends DigestUtils {
    * digest HMac
    *
    * @param algorithm 算法
-   * @param bytes Data to digest
+   * @param bytes     Data to digest
    * @return digest as a byte array
    */
   public static byte[] digestHMac(String algorithm, final byte[] bytes, String key) {

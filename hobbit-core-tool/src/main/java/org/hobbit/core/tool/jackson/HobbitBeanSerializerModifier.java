@@ -1,13 +1,5 @@
 package org.hobbit.core.tool.jackson;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.time.temporal.TemporalAccessor;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import org.hobbit.core.tool.pool.StringPool;
-import org.hobbit.core.tool.utils.StringUtil;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.JavaType;
@@ -16,6 +8,14 @@ import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.time.temporal.TemporalAccessor;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import org.hobbit.core.tool.pool.StringPool;
+import org.hobbit.core.tool.utils.StringUtil;
 
 /**
  * jackson 默认值为 null 时的处理

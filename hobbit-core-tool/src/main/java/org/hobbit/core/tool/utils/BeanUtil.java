@@ -30,7 +30,7 @@ public class BeanUtil extends BeanUtils {
    * 实例化对象
    *
    * @param clazz 类
-   * @param <T> 泛型标记
+   * @param <T>   泛型标记
    * @return 对象
    */
   @SuppressWarnings("unchecked")
@@ -42,7 +42,7 @@ public class BeanUtil extends BeanUtils {
    * 实例化对象
    *
    * @param clazzStr 类名
-   * @param <T> 泛型标记
+   * @param <T>      泛型标记
    * @return 对象
    */
   public static <T> T newInstance(String clazzStr) {
@@ -57,7 +57,7 @@ public class BeanUtil extends BeanUtils {
   /**
    * 获取Bean的属性, 支持 propertyName 多级 ：test.user.name
    *
-   * @param bean bean
+   * @param bean         bean
    * @param propertyName 属性名
    * @return 属性值
    */
@@ -73,9 +73,9 @@ public class BeanUtil extends BeanUtils {
   /**
    * 设置Bean属性, 支持 propertyName 多级 ：test.user.name
    *
-   * @param bean bean
+   * @param bean         bean
    * @param propertyName 属性名
-   * @param value 属性值
+   * @param value        属性值
    */
   public static void setProperty(Object bean, String propertyName, Object value) {
     Objects.requireNonNull(bean, "bean Could not null");
@@ -91,7 +91,7 @@ public class BeanUtil extends BeanUtils {
    * </p>
    *
    * @param source 源对象
-   * @param <T> 泛型标记
+   * @param <T>    泛型标记
    * @return T
    */
   @SuppressWarnings("unchecked")
@@ -111,8 +111,8 @@ public class BeanUtil extends BeanUtils {
    * </p>
    *
    * @param source 源对象
-   * @param clazz 类名
-   * @param <T> 泛型标记
+   * @param clazz  类名
+   * @param <T>    泛型标记
    * @return T
    */
   @Nullable
@@ -130,10 +130,10 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source      源对象
    * @param sourceClazz 源类型
    * @param targetClazz 转换成的类型
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    */
   @Nullable
@@ -154,9 +154,9 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param sourceList 源列表
+   * @param sourceList  源列表
    * @param targetClazz 转换成的类型
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    */
   public static <T> List<T> copy(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -185,7 +185,7 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source     源对象
    * @param targetBean 需要赋值的对象
    */
   public static void copy(@Nullable Object source, @Nullable Object targetBean) {
@@ -205,7 +205,7 @@ public class BeanUtil extends BeanUtils {
    * 支持 bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source     源对象
    * @param targetBean 需要赋值的对象
    */
   public static void copyNonNull(@Nullable Object source, @Nullable Object targetBean) {
@@ -225,9 +225,9 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source      源对象
    * @param targetClazz 转换成的类
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    */
   @Nullable
@@ -245,10 +245,10 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param source 源对象
+   * @param source      源对象
    * @param sourceClazz 源类
    * @param targetClazz 转换成的类
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    */
   @Nullable
@@ -270,9 +270,9 @@ public class BeanUtil extends BeanUtils {
    * 支持 map bean copy
    * </p>
    *
-   * @param sourceList 源对象列表
+   * @param sourceList  源对象列表
    * @param targetClazz 转换成的类
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return List
    */
   public static <T> List<T> copyWithConvert(@Nullable Collection<?> sourceList,
@@ -304,9 +304,9 @@ public class BeanUtil extends BeanUtils {
    * <p>
    * This is just a convenience method. For more complex transfer needs,
    *
-   * @param source the source bean
+   * @param source      the source bean
    * @param targetClazz the target bean class
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return T
    * @throws BeansException if the copying failed
    */
@@ -330,9 +330,9 @@ public class BeanUtil extends BeanUtils {
    * <p>
    * This is just a convenience method. For more complex transfer needs,
    *
-   * @param sourceList the source list bean
+   * @param sourceList  the source list bean
    * @param targetClazz the target bean class
-   * @param <T> 泛型标记
+   * @param <T>         泛型标记
    * @return List
    * @throws BeansException if the copying failed
    */
@@ -369,9 +369,9 @@ public class BeanUtil extends BeanUtils {
   /**
    * 将map 转为 bean
    *
-   * @param beanMap map
+   * @param beanMap   map
    * @param valueType 对象类型
-   * @param <T> 泛型标记
+   * @param <T>       泛型标记
    * @return {T}
    */
   public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {
@@ -388,7 +388,7 @@ public class BeanUtil extends BeanUtils {
    * 给一个Bean添加字段
    *
    * @param superBean 父级Bean
-   * @param props 新增属性
+   * @param props     新增属性
    * @return {Object}
    */
   @Nullable
@@ -406,7 +406,7 @@ public class BeanUtil extends BeanUtils {
    * 给一个class添加字段
    *
    * @param superclass 父级
-   * @param props 新增属性
+   * @param props      新增属性
    * @return {Object}
    */
   public static Object generator(Class<?> superclass, BeanProperty... props) {

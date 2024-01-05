@@ -47,7 +47,7 @@ public abstract class HobbitBeanCopier {
   private static final Type BEAN_COPIER = TypeUtils.parseType(HobbitBeanCopier.class.getName());
   private static final Type BEAN_MAP = TypeUtils.parseType(Map.class.getName());
   private static final Signature COPY = new Signature("copy", Type.VOID_TYPE,
-      new Type[] {Constants.TYPE_OBJECT, Constants.TYPE_OBJECT, CONVERTER});
+      new Type[]{Constants.TYPE_OBJECT, Constants.TYPE_OBJECT, CONVERTER});
   private static final Signature CONVERT =
       TypeUtils.parseSignature("Object convert(Object, Class, Object)");
   private static final Signature BEAN_MAP_GET = TypeUtils.parseSignature("Object get(Object)");
@@ -81,8 +81,8 @@ public abstract class HobbitBeanCopier {
   /**
    * Bean copy
    *
-   * @param from from Bean
-   * @param to to Bean
+   * @param from      from Bean
+   * @param to        to Bean
    * @param converter Converter
    */
   abstract public void copy(Object from, Object to, @Nullable Converter converter);
@@ -286,7 +286,6 @@ public abstract class HobbitBeanCopier {
       }
     }
 
-    @SuppressWarnings("rawtypes")
     @Override
     protected Object firstInstance(Class type) {
       return BeanUtil.newInstance(type);
@@ -300,8 +299,8 @@ public abstract class HobbitBeanCopier {
     /**
      * 处理 map 的 copy
      *
-     * @param ce ClassEmitter
-     * @param e CodeEmitter
+     * @param ce         ClassEmitter
+     * @param e          CodeEmitter
      * @param sourceType sourceType
      * @param targetType targetType
      */

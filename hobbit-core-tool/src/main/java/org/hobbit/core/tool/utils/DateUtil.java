@@ -65,7 +65,7 @@ public class DateUtil {
   /**
    * 添加年
    *
-   * @param date 时间
+   * @param date       时间
    * @param yearsToAdd 添加的年数
    * @return 设置后的时间
    */
@@ -76,7 +76,7 @@ public class DateUtil {
   /**
    * 添加月
    *
-   * @param date 时间
+   * @param date        时间
    * @param monthsToAdd 添加的月数
    * @return 设置后的时间
    */
@@ -87,7 +87,7 @@ public class DateUtil {
   /**
    * 添加周
    *
-   * @param date 时间
+   * @param date       时间
    * @param weeksToAdd 添加的周数
    * @return 设置后的时间
    */
@@ -98,7 +98,7 @@ public class DateUtil {
   /**
    * 添加天
    *
-   * @param date 时间
+   * @param date      时间
    * @param daysToAdd 添加的天数
    * @return 设置后的时间
    */
@@ -109,7 +109,7 @@ public class DateUtil {
   /**
    * 添加小时
    *
-   * @param date 时间
+   * @param date       时间
    * @param hoursToAdd 添加的小时数
    * @return 设置后的时间
    */
@@ -120,7 +120,7 @@ public class DateUtil {
   /**
    * 添加分钟
    *
-   * @param date 时间
+   * @param date         时间
    * @param minutesToAdd 添加的分钟数
    * @return 设置后的时间
    */
@@ -131,7 +131,7 @@ public class DateUtil {
   /**
    * 添加秒
    *
-   * @param date 时间
+   * @param date         时间
    * @param secondsToAdd 添加的秒数
    * @return 设置后的时间
    */
@@ -142,7 +142,7 @@ public class DateUtil {
   /**
    * 添加毫秒
    *
-   * @param date 时间
+   * @param date        时间
    * @param millisToAdd 添加的毫秒数
    * @return 设置后的时间
    */
@@ -153,7 +153,7 @@ public class DateUtil {
   /**
    * 添加纳秒
    *
-   * @param date 时间
+   * @param date       时间
    * @param nanosToAdd 添加的纳秒数
    * @return 设置后的时间
    */
@@ -164,7 +164,7 @@ public class DateUtil {
   /**
    * 日期添加时间量
    *
-   * @param date 时间
+   * @param date   时间
    * @param amount 时间量
    * @return 设置后的时间
    */
@@ -176,7 +176,7 @@ public class DateUtil {
   /**
    * 减少年
    *
-   * @param date 时间
+   * @param date  时间
    * @param years 减少的年数
    * @return 设置后的时间
    */
@@ -187,7 +187,7 @@ public class DateUtil {
   /**
    * 减少月
    *
-   * @param date 时间
+   * @param date   时间
    * @param months 减少的月数
    * @return 设置后的时间
    */
@@ -198,7 +198,7 @@ public class DateUtil {
   /**
    * 减少周
    *
-   * @param date 时间
+   * @param date  时间
    * @param weeks 减少的周数
    * @return 设置后的时间
    */
@@ -220,7 +220,7 @@ public class DateUtil {
   /**
    * 减少小时
    *
-   * @param date 时间
+   * @param date  时间
    * @param hours 减少的小时数
    * @return 设置后的时间
    */
@@ -231,7 +231,7 @@ public class DateUtil {
   /**
    * 减少分钟
    *
-   * @param date 时间
+   * @param date    时间
    * @param minutes 减少的分钟数
    * @return 设置后的时间
    */
@@ -242,7 +242,7 @@ public class DateUtil {
   /**
    * 减少秒
    *
-   * @param date 时间
+   * @param date    时间
    * @param seconds 减少的秒数
    * @return 设置后的时间
    */
@@ -253,7 +253,7 @@ public class DateUtil {
   /**
    * 减少毫秒
    *
-   * @param date 时间
+   * @param date   时间
    * @param millis 减少的毫秒数
    * @return 设置后的时间
    */
@@ -264,7 +264,7 @@ public class DateUtil {
   /**
    * 减少纳秒
    *
-   * @param date 时间
+   * @param date  时间
    * @param nanos 减少的纳秒数
    * @return 设置后的时间
    */
@@ -275,7 +275,7 @@ public class DateUtil {
   /**
    * 日期减少时间量
    *
-   * @param date 时间
+   * @param date   时间
    * @param amount 时间量
    * @return 设置后的时间
    */
@@ -287,9 +287,9 @@ public class DateUtil {
   /**
    * 设置日期属性
    *
-   * @param date 时间
+   * @param date          时间
    * @param calendarField 更改的属性
-   * @param amount 更改数，-1表示减少
+   * @param amount        更改数，-1表示减少
    * @return 设置后的时间
    */
   private static Date set(Date date, int calendarField, int amount) {
@@ -344,7 +344,7 @@ public class DateUtil {
   /**
    * 日期格式化
    *
-   * @param date 时间
+   * @param date    时间
    * @param pattern 表达式
    * @return 格式化后的时间
    */
@@ -396,7 +396,7 @@ public class DateUtil {
    * java8 日期格式化
    *
    * @param temporal 时间
-   * @param pattern 表达式
+   * @param pattern  表达式
    * @return 格式化后的时间
    */
   public static String format(TemporalAccessor temporal, String pattern) {
@@ -423,7 +423,7 @@ public class DateUtil {
    * 将字符串转换为时间
    *
    * @param dateStr 时间字符串
-   * @param format ConcurrentDateFormat
+   * @param format  ConcurrentDateFormat
    * @return 时间
    */
   public static Date parse(String dateStr, ConcurrentDateFormat format) {
@@ -558,7 +558,7 @@ public class DateUtil {
    * 比较2个时间差，跨度比较小
    *
    * @param startInclusive 开始时间
-   * @param endExclusive 结束时间
+   * @param endExclusive   结束时间
    * @return 时间间隔
    */
   public static Duration between(Temporal startInclusive, Temporal endExclusive) {
@@ -569,7 +569,7 @@ public class DateUtil {
    * 比较2个时间差，跨度比较大，年月日为单位
    *
    * @param startDate 开始时间
-   * @param endDate 结束时间
+   * @param endDate   结束时间
    * @return 时间间隔
    */
   public static Period between(LocalDate startDate, LocalDate endDate) {
@@ -580,7 +580,7 @@ public class DateUtil {
    * 比较2个 时间差
    *
    * @param startDate 开始时间
-   * @param endDate 结束时间
+   * @param endDate   结束时间
    * @return 时间间隔
    */
   public static Duration between(Date startDate, Date endDate) {

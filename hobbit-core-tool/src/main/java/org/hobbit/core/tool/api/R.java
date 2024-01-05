@@ -1,16 +1,16 @@
 package org.hobbit.core.tool.api;
 
-import java.util.Optional;
-import org.hobbit.core.context.constant.HobbitConstant;
-import org.hobbit.core.tool.utils.ObjectUtil;
-import org.springframework.lang.Nullable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Optional;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hobbit.core.context.constant.HobbitConstant;
+import org.hobbit.core.tool.utils.ObjectUtil;
+import org.springframework.lang.Nullable;
 
 /**
  * @author lhy
@@ -80,7 +80,7 @@ public class R<T> {
    * 返回R
    *
    * @param data 数据
-   * @param <T> T 泛型标记
+   * @param <T>  T 泛型标记
    * @return R
    */
   public static <T> R<T> data(T data) {
@@ -91,8 +91,8 @@ public class R<T> {
    * 返回R
    *
    * @param data 数据
-   * @param msg 消息
-   * @param <T> T 泛型标记
+   * @param msg  消息
+   * @param <T>  T 泛型标记
    * @return R
    */
   public static <T> R<T> data(T data, String msg) {
@@ -104,8 +104,8 @@ public class R<T> {
    *
    * @param code 状态码
    * @param data 数据
-   * @param msg 消息
-   * @param <T> T 泛型标记
+   * @param msg  消息
+   * @param <T>  T 泛型标记
    * @return R
    */
   public static <T> R<T> data(int code, T data, String msg) {
@@ -127,7 +127,7 @@ public class R<T> {
    * 返回R
    *
    * @param resultCode 业务代码
-   * @param <T> T 泛型标记
+   * @param <T>        T 泛型标记
    * @return R
    */
   public static <T> R<T> success(IResultCode resultCode) {
@@ -138,8 +138,8 @@ public class R<T> {
    * 返回R
    *
    * @param resultCode 业务代码
-   * @param msg 消息
-   * @param <T> T 泛型标记
+   * @param msg        消息
+   * @param <T>        T 泛型标记
    * @return R
    */
   public static <T> R<T> success(IResultCode resultCode, String msg) {
@@ -161,8 +161,8 @@ public class R<T> {
    * 返回R
    *
    * @param code 状态码
-   * @param msg 消息
-   * @param <T> T 泛型标记
+   * @param msg  消息
+   * @param <T>  T 泛型标记
    * @return R
    */
   public static <T> R<T> fail(int code, String msg) {
@@ -173,7 +173,7 @@ public class R<T> {
    * 返回R
    *
    * @param resultCode 业务代码
-   * @param <T> T 泛型标记
+   * @param <T>        T 泛型标记
    * @return R
    */
   public static <T> R<T> fail(IResultCode resultCode) {
@@ -184,8 +184,8 @@ public class R<T> {
    * 返回R
    *
    * @param resultCode 业务代码
-   * @param msg 消息
-   * @param <T> T 泛型标记
+   * @param msg        消息
+   * @param <T>        T 泛型标记
    * @return R
    */
   public static <T> R<T> fail(IResultCode resultCode, String msg) {

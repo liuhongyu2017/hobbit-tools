@@ -11,11 +11,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 文件工具类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
 public class HobbitFileUtil {
+
   /**
    * 定义允许上传的文件扩展名
    */
@@ -27,7 +28,7 @@ public class HobbitFileUtil {
   /**
    * 图片扩展名
    */
-  private static final String[] FILE_TYPES = new String[] {"gif", "jpg", "jpeg", "png", "bmp"};
+  private static final String[] FILE_TYPES = new String[]{"gif", "jpg", "jpeg", "png", "bmp"};
 
   static {
     EXT_MAP.put("image", ".gif,.jpg,.jpeg,.png,.bmp,.JPG,.JPEG,.PNG");
@@ -51,7 +52,7 @@ public class HobbitFileUtil {
   /**
    * 测试文件后缀 只让指定后缀的文件上传，像jsp,war,sh等危险的后缀禁止
    *
-   * @param dir 目录
+   * @param dir      目录
    * @param fileName 文件名
    * @return 返回成功与否
    */
@@ -84,9 +85,6 @@ public class HobbitFileUtil {
 
     /**
      * 文本排序转换成枚举
-     *
-     * @param sort
-     * @return
      */
     public static FileSort of(String sort) {
       try {
@@ -99,6 +97,7 @@ public class HobbitFileUtil {
 
   @SuppressWarnings("rawtypes")
   public static class NameComparator implements Comparator {
+
     @Override
     public int compare(Object a, Object b) {
       Hashtable hashA = (Hashtable) a;
@@ -115,6 +114,7 @@ public class HobbitFileUtil {
 
   @SuppressWarnings("rawtypes")
   public static class SizeComparator implements Comparator {
+
     @Override
     public int compare(Object a, Object b) {
       Hashtable hashA = (Hashtable) a;
@@ -124,19 +124,14 @@ public class HobbitFileUtil {
       } else if (!((Boolean) hashA.get(IS_DIR)) && ((Boolean) hashB.get(IS_DIR))) {
         return 1;
       } else {
-        if (((Long) hashA.get(FILE_SIZE)) > ((Long) hashB.get(FILE_SIZE))) {
-          return 1;
-        } else if (((Long) hashA.get(FILE_SIZE)) < ((Long) hashB.get(FILE_SIZE))) {
-          return -1;
-        } else {
-          return 0;
-        }
+        return ((Long) hashA.get(FILE_SIZE)).compareTo((Long) hashB.get(FILE_SIZE));
       }
     }
   }
 
   @SuppressWarnings("rawtypes")
   public static class TypeComparator implements Comparator {
+
     @Override
     public int compare(Object a, Object b) {
       Hashtable hashA = (Hashtable) a;
@@ -155,10 +150,7 @@ public class HobbitFileUtil {
     return url.replaceAll("\\\\", "/");
   }
 
-
-  /********************************
-   * HobbitFile封装
-   ********************************************************/
+  /* HobbitFile封装 */
 
   /**
    * 获取HobbitFile封装类
@@ -174,7 +166,7 @@ public class HobbitFileUtil {
    * 获取HobbitFile封装类
    *
    * @param file 文件
-   * @param dir 目录
+   * @param dir  目录
    * @return HobbitFile
    */
   public static LocalFile getFile(MultipartFile file, String dir) {
@@ -184,9 +176,9 @@ public class HobbitFileUtil {
   /**
    * 获取HobbitFile封装类
    *
-   * @param file 文件
-   * @param dir 目录
-   * @param path 路径
+   * @param file        文件
+   * @param dir         目录
+   * @param path        路径
    * @param virtualPath 虚拟路径
    * @return HobbitFile
    */
@@ -208,7 +200,7 @@ public class HobbitFileUtil {
    * 获取HobbitFile封装类
    *
    * @param files 文件集合
-   * @param dir 目录
+   * @param dir   目录
    * @return HobbitFile
    */
   public static List<LocalFile> getFiles(List<MultipartFile> files, String dir) {
@@ -218,8 +210,8 @@ public class HobbitFileUtil {
   /**
    * 获取HobbitFile封装类
    *
-   * @param files 文件集合
-   * @param path 路径
+   * @param files       文件集合
+   * @param path        路径
    * @param virtualPath 虚拟路径
    * @return HobbitFile
    */

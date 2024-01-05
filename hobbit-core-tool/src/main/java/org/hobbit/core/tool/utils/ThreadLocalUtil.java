@@ -6,8 +6,7 @@ import java.util.function.Supplier;
 import org.springframework.lang.Nullable;
 
 /**
- * ThreadLocal 工具类,通过在ThreadLocal存储map信息,来实现在ThreadLocal中维护多个信息 <br>
- * e.g.<code>
+ * ThreadLocal 工具类,通过在ThreadLocal存储map信息,来实现在ThreadLocal中维护多个信息 <br> e.g.<code>
  * ThreadLocalUtils.put("key",value);<br> ThreadLocalUtils.get("key");<br>
  * ThreadLocalUtils.remove("key");<br> ThreadLocalUtils.getAndRemove("key");<br>
  * ThreadLocalUtils.get("key",()-&gt;defaultValue);<br> ThreadLocalUtils.clear();<br>
@@ -32,9 +31,9 @@ public class ThreadLocalUtil {
   /**
    * 设置一个值到ThreadLocal
    *
-   * @param key 键
+   * @param key   键
    * @param value 值
-   * @param <T> 值的类型
+   * @param <T>   值的类型
    * @return 被放入的值
    * @see Map#put(Object, Object)
    */

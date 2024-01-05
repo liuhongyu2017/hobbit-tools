@@ -27,7 +27,7 @@ public class ThreadUtil {
    * Thread sleep
    *
    * @param timeUnit TimeUnit
-   * @param timeout timeout
+   * @param timeout  timeout
    */
   public static void sleep(TimeUnit timeUnit, long timeout) {
     try {

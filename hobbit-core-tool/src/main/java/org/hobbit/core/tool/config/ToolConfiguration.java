@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 工具配置类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */

@@ -44,8 +44,8 @@ public class ReflectUtil extends ReflectionUtils {
   /**
    * 获取 Bean 的所有 PropertyDescriptor
    *
-   * @param type 类
-   * @param read 读取方法
+   * @param type  类
+   * @param read  读取方法
    * @param write 写方法
    * @return PropertyDescriptor数组
    */
@@ -91,9 +91,9 @@ public class ReflectUtil extends ReflectionUtils {
   /**
    * 获取 bean 的属性信息
    *
-   * @param propertyType 类型
+   * @param propertyType       类型
    * @param propertyDescriptor PropertyDescriptor
-   * @param propertyName 属性名
+   * @param propertyName       属性名
    * @return {Property}
    */
   public static Property getProperty(Class<?> propertyType, PropertyDescriptor propertyDescriptor,
@@ -122,9 +122,9 @@ public class ReflectUtil extends ReflectionUtils {
   /**
    * 获取 类属性信息
    *
-   * @param propertyType 类型
+   * @param propertyType       类型
    * @param propertyDescriptor PropertyDescriptor
-   * @param propertyName 属性名
+   * @param propertyName       属性名
    * @return {Property}
    */
   public static TypeDescriptor getTypeDescriptor(Class<?> propertyType,
@@ -138,7 +138,7 @@ public class ReflectUtil extends ReflectionUtils {
   /**
    * 获取 类属性
    *
-   * @param clazz 类信息
+   * @param clazz     类信息
    * @param fieldName 属性名
    * @return Field
    */
@@ -157,10 +157,10 @@ public class ReflectUtil extends ReflectionUtils {
   /**
    * 获取 所有 field 属性上的注解
    *
-   * @param clazz 类
-   * @param fieldName 属性名
+   * @param clazz           类
+   * @param fieldName       属性名
    * @param annotationClass 注解
-   * @param <T> 注解泛型
+   * @param <T>             注解泛型
    * @return 注解
    */
   @Nullable

@@ -2,7 +2,7 @@ package org.hobbit.core.context.constant;
 
 /**
  * 事件常量
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

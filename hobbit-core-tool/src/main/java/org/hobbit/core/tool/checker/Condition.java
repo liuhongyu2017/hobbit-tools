@@ -1,5 +1,7 @@
 package org.hobbit.core.tool.checker;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hobbit.core.tool.checker.fun.Predicate;
 
 /**
@@ -8,6 +10,8 @@ import org.hobbit.core.tool.checker.fun.Predicate;
  * @author lhy
  * @version 1.0.0 2023/6/14
  */
+@Setter
+@Getter
 public class Condition<T> {
 
   private String field;
@@ -25,45 +29,5 @@ public class Condition<T> {
     this.type = type;
     this.val = val;
     this.desc = desc;
-  }
-
-  public String getField() {
-    return field;
-  }
-
-  public void setField(String field) {
-    this.field = field;
-  }
-
-  public ECheckType getType() {
-    return type;
-  }
-
-  public void setType(ECheckType type) {
-    this.type = type;
-  }
-
-  public Object getVal() {
-    return val;
-  }
-
-  public void setVal(Object val) {
-    this.val = val;
-  }
-
-  public String getDesc() {
-    return desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public Predicate<T> getResultPredicate() {
-    return resultPredicate;
-  }
-
-  public void setResultPredicate(Predicate<T> resultPredicate) {
-    this.resultPredicate = resultPredicate;
   }
 }

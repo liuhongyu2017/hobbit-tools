@@ -1,21 +1,20 @@
 package org.hobbit.core.boot.request;
 
-import java.io.IOException;
-import org.hobbit.core.context.props.RequestProperties;
-import org.hobbit.core.context.props.XssProperties;
-import org.springframework.util.AntPathMatcher;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
+import org.hobbit.core.context.props.RequestProperties;
+import org.hobbit.core.context.props.XssProperties;
+import org.springframework.util.AntPathMatcher;
 
 /**
  * Request 全局过滤器
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
@@ -25,11 +24,6 @@ public class HobbitRequestFilter implements Filter {
   private final RequestProperties requestProperties;
   private final XssProperties xssProperties;
   private final AntPathMatcher antPathMatcher = new AntPathMatcher();
-
-  @Override
-  public void init(FilterConfig config) throws ServletException {
-
-  }
 
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -51,11 +45,6 @@ public class HobbitRequestFilter implements Filter {
           new XssHttpServletRequestWrapper((HttpServletRequest) request);
       chain.doFilter(xssRequest, response);
     }
-  }
-
-  @Override
-  public void destroy() {
-
   }
 
   private boolean requestSkip(String path) {

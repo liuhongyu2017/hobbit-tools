@@ -1,12 +1,12 @@
 package org.hobbit.core.context.props;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * HobbitFileProperties
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

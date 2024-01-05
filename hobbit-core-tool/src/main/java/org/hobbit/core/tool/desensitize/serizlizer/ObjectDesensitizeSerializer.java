@@ -1,19 +1,19 @@
 package org.hobbit.core.tool.desensitize.serizlizer;
 
-import java.io.IOException;
-import lombok.Getter;
-import org.hobbit.core.tool.desensitize.Symbol;
-import org.hobbit.core.tool.desensitize.annotation.Desensitize;
-import org.hobbit.core.tool.desensitize.desensitization.Desensitization;
-import org.hobbit.core.tool.desensitize.desensitization.DesensitizationFactory;
-import org.hobbit.core.tool.desensitize.desensitization.StringDesensitization;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.hobbit.core.tool.desensitize.Symbol;
+import org.hobbit.core.tool.desensitize.annotation.Desensitize;
+import org.hobbit.core.tool.desensitize.desensitization.Desensitization;
+import org.hobbit.core.tool.desensitize.desensitization.DesensitizationFactory;
+import org.hobbit.core.tool.desensitize.desensitization.StringDesensitization;
 
 /**
  * @author lhy

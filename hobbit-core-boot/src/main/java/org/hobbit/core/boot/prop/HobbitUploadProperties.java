@@ -1,14 +1,14 @@
 package org.hobbit.core.boot.prop;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hobbit.core.tool.utils.PathUtil;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.lang.Nullable;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * 文件上传配置
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

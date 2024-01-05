@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * hobbit enum <-> String 转换配置
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */

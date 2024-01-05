@@ -15,7 +15,8 @@ import org.hobbit.core.tool.checker.fun.SFunction;
  */
 public class ConvertUtil {
 
-  private ConvertUtil() {}
+  private ConvertUtil() {
+  }
 
   public static final String GET = "get";
 
@@ -82,7 +83,7 @@ public class ConvertUtil {
    * @return 转换好的字符串
    */
   public static String firstToLowerCase(final String str) {
-    if (null == str || str.length() == 0) {
+    if (null == str || str.isEmpty()) {
       return "";
     }
     return str.substring(0, 1).toLowerCase() + str.substring(1);

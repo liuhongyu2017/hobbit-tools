@@ -2,12 +2,12 @@ package org.hobbit.core.context.props;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Request 配置类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

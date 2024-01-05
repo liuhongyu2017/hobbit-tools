@@ -1,6 +1,7 @@
 package org.hobbit.core.context;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;
@@ -10,7 +11,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
 
 /**
  * 配合 @PropertySource 注解读取 yaml 文件
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */
@@ -22,7 +23,9 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
     YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
     factory.setResources(encodedResource.getResource());
     Properties properties = factory.getObject();
-    return new PropertiesPropertySource(encodedResource.getResource().getFilename(), properties);
+    return new PropertiesPropertySource(
+        Objects.requireNonNull(encodedResource.getResource().getFilename()),
+        Objects.requireNonNull(properties));
   }
 
 }

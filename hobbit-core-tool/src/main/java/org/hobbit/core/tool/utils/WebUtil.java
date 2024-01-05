@@ -1,5 +1,9 @@
 package org.hobbit.core.tool.utils;
 
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.Objects;
 import java.util.function.Predicate;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.tool.pool.StringPool;
 import org.springframework.http.MediaType;
 import org.springframework.lang.Nullable;
@@ -18,11 +23,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.util.WebUtils;
-import jakarta.servlet.ServletInputStream;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Miscellaneous utilities for web applications.
@@ -63,7 +63,7 @@ public class WebUtil extends WebUtils {
    * 读取cookie
    *
    * @param request HttpServletRequest
-   * @param name cookie name
+   * @param name    cookie name
    * @return cookie value
    */
   @Nullable
@@ -76,7 +76,7 @@ public class WebUtil extends WebUtils {
    * 清除 某个指定的cookie
    *
    * @param response HttpServletResponse
-   * @param key cookie key
+   * @param key      cookie key
    */
   public static void removeCookie(HttpServletResponse response, String key) {
     setCookie(response, key, null, 0);
@@ -85,9 +85,9 @@ public class WebUtil extends WebUtils {
   /**
    * 设置cookie
    *
-   * @param response HttpServletResponse
-   * @param name cookie name
-   * @param value cookie value
+   * @param response        HttpServletResponse
+   * @param name            cookie name
+   * @param value           cookie value
    * @param maxAgeInSeconds maxage
    */
   public static void setCookie(HttpServletResponse response, String name, @Nullable String value,
@@ -114,7 +114,7 @@ public class WebUtil extends WebUtils {
    * 返回json
    *
    * @param response HttpServletResponse
-   * @param result 结果对象
+   * @param result   结果对象
    */
   public static void renderJson(HttpServletResponse response, Object result) {
     renderJson(response, result, MediaType.APPLICATION_JSON_VALUE);
@@ -123,8 +123,8 @@ public class WebUtil extends WebUtils {
   /**
    * 返回json
    *
-   * @param response HttpServletResponse
-   * @param result 结果对象
+   * @param response    HttpServletResponse
+   * @param result      结果对象
    * @param contentType contentType
    */
   public static void renderJson(HttpServletResponse response, Object result, String contentType) {
@@ -146,7 +146,7 @@ public class WebUtil extends WebUtils {
     return getIP(WebUtil.getRequest());
   }
 
-  private static final String[] IP_HEADER_NAMES = new String[] {"x-forwarded-for",
+  private static final String[] IP_HEADER_NAMES = new String[]{"x-forwarded-for",
       "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR"};
 
   private static final Predicate<String> IP_PREDICATE =
@@ -236,20 +236,20 @@ public class WebUtil extends WebUtils {
         sb.append(line);
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      log.error(e.getMessage(), e);
     } finally {
       if (servletInputStream != null) {
         try {
           servletInputStream.close();
         } catch (IOException e) {
-          e.printStackTrace();
+          log.error(e.getMessage(), e);
         }
       }
       if (reader != null) {
         try {
           reader.close();
         } catch (IOException e) {
-          e.printStackTrace();
+          log.error(e.getMessage(), e);
         }
       }
     }
@@ -287,7 +287,7 @@ public class WebUtil extends WebUtils {
       }
       return str.replaceAll("&amp;", "&");
     } catch (Exception ex) {
-      ex.printStackTrace();
+      log.error(ex.getMessage(), ex);
       return StringPool.EMPTY;
     }
   }

@@ -5,17 +5,18 @@ import org.springframework.core.Ordered;
 
 /**
  * launcher 扩展 用于一些组件发现
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/03
  */
 public interface LauncherService extends Ordered, Comparable<LauncherService> {
+
   /**
    * 启动时 处理 SpringApplicationBuilder
    *
-   * @param builder SpringApplicationBuilder
-   * @param appName SpringApplicationAppName
-   * @param profile SpringApplicationProfile
+   * @param builder    SpringApplicationBuilder
+   * @param appName    SpringApplicationAppName
+   * @param profile    SpringApplicationProfile
    * @param isLocalDev SpringApplicationIsLocalDev
    */
   void launcher(SpringApplicationBuilder builder, String appName, String profile,

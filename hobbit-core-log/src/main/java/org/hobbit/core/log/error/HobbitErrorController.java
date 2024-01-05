@@ -1,5 +1,7 @@
 package org.hobbit.core.log.error;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Map;
 import org.hobbit.core.tool.utils.JsonUtil;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
@@ -10,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 更改 html 请求异常为 ajax

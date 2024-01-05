@@ -16,10 +16,6 @@ import org.hobbit.core.tool.function.CheckedSupplier;
 /**
  * Lambda 受检异常处理
  *
- * <p>
- * https://segmentfault.com/a/1190000007832130 https://github.com/jOOQ/jOOL
- * </p>
- *
  * @author lhy
  * @version 1.0.0 2023/9/3
  */

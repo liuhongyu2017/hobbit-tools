@@ -1,5 +1,7 @@
 package org.hobbit.core.boot.config;
 
+import jakarta.servlet.DispatcherType;
+import lombok.AllArgsConstructor;
 import org.hobbit.core.boot.request.HobbitRequestFilter;
 import org.hobbit.core.context.props.RequestProperties;
 import org.hobbit.core.context.props.XssProperties;
@@ -8,12 +10,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
-import jakarta.servlet.DispatcherType;
-import lombok.AllArgsConstructor;
 
 /**
  * 过滤器配置类
- * 
+ *
  * @author lhy
  * @version 1.0.0 2023/10/04
  */

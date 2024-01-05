@@ -45,7 +45,7 @@ public class Checker<T> {
    * 判断值不能为空
    */
   public Checker<T> notNull(SFunction<T, ?> column, String desc) {
-    conditions.add(new Condition<T>(getFieldMeta(column), ECheckType.NOT_NULL, null, desc));
+    conditions.add(new Condition<>(getFieldMeta(column), ECheckType.NOT_NULL, null, desc));
     return this;
   }
 

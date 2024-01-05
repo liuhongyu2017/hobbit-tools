@@ -2,6 +2,7 @@ package org.hobbit.core.log.error;
 
 import java.util.Map;
 import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 import org.hobbit.core.tool.api.R;
 import org.hobbit.core.tool.api.ResultCode;
 import org.hobbit.core.tool.utils.BeanUtil;
@@ -10,7 +11,6 @@ import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.lang.Nullable;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.WebRequest;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 全局异常处理

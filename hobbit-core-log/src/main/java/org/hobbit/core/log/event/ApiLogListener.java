@@ -1,6 +1,7 @@
 package org.hobbit.core.log.event;
 
 import java.util.Map;
+import lombok.RequiredArgsConstructor;
 import org.hobbit.core.context.constant.EventConstant;
 import org.hobbit.core.context.props.HobbitProperties;
 import org.hobbit.core.log.model.LogApi;
@@ -9,7 +10,6 @@ import org.hobbit.core.log.utils.LogAbstractUtil;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
-import lombok.RequiredArgsConstructor;
 
 /**
  * 异步监听日志事件
